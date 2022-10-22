@@ -1,0 +1,52 @@
+Message System
+Chose your option
+1) Create a user
+2) Add a user
+3) Send Message
+4) Check User friends messages
+5) Exit
+1
+Username?
+Catarina
+
+Message System
+Chose your option
+1) Create a user
+2) Add a user
+3) Send Message
+4) Check User friends messages
+5) Exit
+
+3
+
+User you want to chat?
+Vera
+Message?
+Ola
+[Ola]
+
+Message System
+Chose your option
+1) Create a user
+2) Add a user
+3) Send Message
+4) Check User friends messages
+5) Exit
+
+2
+Which user are you? Catarina
+Who do you wanna be friends with? 
+Vera
+
+Message System
+Chose your option
+1) Create a user
+2) Add a user
+3) Send Message
+4) Check User friends messages
+5) Exit
+
+4
+Which user are you? Catarina
+Message from Vera:
+Ola

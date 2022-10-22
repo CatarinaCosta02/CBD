@@ -1,0 +1,16 @@
+PING
+DBSIZE
+redis-clear
+redis-stop
+redis-server
+quit
+ping
+SET Book:1 "Infinite Jest"
+SET Book:1:ReadAction 1
+LPUSH Book:1:comment "This was a fun read"
+LRANGE Book:1:comment 0 -1
+RPUSH Organization:1:members Person:1 Person:2 Person:3 Person:4
+HSET Book:3 name "Cats Cradle"
+HGET Book:3 name
+SETBIT Movie:UserPlays:2014-12-12 2 1
+quit

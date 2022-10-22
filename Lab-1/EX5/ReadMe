@@ -1,0 +1,9 @@
+Foram usadas estruturas como HashMap, Set e List
+Neste exercicio usamos das ferramentas do Redis para o completar, criando assim, Lista, Setters e HashMaps em Redis
+
+Foram criadas 4 classes para o exercicio:
+
+A Main -> contem o menu do sistema de mensagens
+A PostSet -> trata e manipula a base de dados das subscricoes
+A PostList -> trata e manipula a base de dados das mensagens
+A PostHash -> trata e manipula a base de dados dos utilizadores

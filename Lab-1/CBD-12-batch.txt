@@ -1,0 +1,15 @@
+GET Book:1
+GET Book:1:ReadAction
+INCR Book:1:ReadAction
+MSET Person:2 "Kurt Vonnegut" Person:3 "Jane Austen" Person:4 "Mark Twain"
+MGET Person:2 Person:3 Person:4
+RPUSH Organization:1:members Person:1 Person:2 Person:3 Person:4
+LRANGE Organization:1:members 0 -1
+LTRIM Organization:1:members 0 2
+HSET Book:3 name "Cats Cradle"
+HGET Book:3 name
+SET Organization:5 "Beatles"
+SADD Organization:5:member Paul John George Ringo
+SMEMBERS Organization:5:member
+ZADD copyrightYear 1996 Book:1 2014 Book:2 1963 Book:3
+ZRANGE copyrightYear 0 -1 WITHSCORES

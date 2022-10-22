@@ -1,0 +1,29 @@
+(nil)
+"1"
+(integer) 2
+OK
+1) "Kurt Vonnegut"
+2) "Jane Austen"
+3) "Mark Twain"
+(integer) 4
+1) "Person:1"
+2) "Person:2"
+3) "Person:3"
+4) "Person:4"
+OK
+(integer) 1
+"Cats Cradle"
+OK
+(integer) 4
+1) "John"
+2) "George"
+3) "Paul"
+4) "Ringo"
+(integer) 3
+1) "Book:3"
+2) "1963"
+3) "Book:1"
+4) "1996"
+5) "Book:2"
+6) "2014"
+
