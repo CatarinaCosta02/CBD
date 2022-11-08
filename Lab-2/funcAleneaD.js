@@ -1,0 +1,4 @@
+funcAlineaD = function(){
+	
+	
+}

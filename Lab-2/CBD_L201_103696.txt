@@ -1,0 +1,80 @@
+Some mongodb test commands
+
+> show dbs;
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+> use examples
+switched to db examples
+> db;
+examples
+>db
+test
+> use examples
+switched to db examples
+> db
+examples
+> use myDB
+switched to db myDB
+> use myNewDB
+switched to db myNewDB
+> db.myNewCollection1.insertOne( { x: 1 } )
+{
+	"acknowledged" : true,
+	"insertedId" : ObjectId("636a9aef72208c9236d61341")
+}
+> db.myNewCollection3.createIndex( { y: 1 } )
+{
+	"createdCollectionAutomatically" : true,
+	"numIndexesBefore" : 1,
+	"numIndexesAfter" : 2,
+	"ok" : 1
+}
+> db.createCollection(
+...   "<viewName>",
+...   {
+...     "viewOn" : "<source>",
+...     "pipeline" : [<pipeline>],
+...     "collation" : { <collation> }
+...   }
+... )
+
+> db.students.insertMany( [
+...    { sID: 22001, name: "Alex", year: 1, score: 4.0 },
+...    { sID: 21001, name: "bernie", year: 2, score: 3.7 },
+...    { sID: 20010, name: "Chris", year: 3, score: 2.5 },
+...    { sID: 22021, name: "Drew", year: 1, score: 3.2 },
+...    { sID: 17301, name: "harley", year: 6, score: 3.1 },
+...    { sID: 21022, name: "Farmer", year: 1, score: 2.2 },
+...    { sID: 20020, name: "george", year: 3, score: 2.8 },
+...    { sID: 18020, name: "Harley", year: 5, score: 2.8 },
+... ] )
+{
+	"acknowledged" : true,
+	"insertedIds" : [
+		ObjectId("636a9b3d72208c9236d61342"),
+		ObjectId("636a9b3d72208c9236d61343"),
+		ObjectId("636a9b3d72208c9236d61344"),
+		ObjectId("636a9b3d72208c9236d61345"),
+		ObjectId("636a9b3d72208c9236d61346"),
+		ObjectId("636a9b3d72208c9236d61347"),
+		ObjectId("636a9b3d72208c9236d61348"),
+		ObjectId("636a9b3d72208c9236d61349")
+	]
+}
+
+> db.createView(
+...    "firstYears",
+...    "students",
+...    [ { $match: { year: 1 } } ]
+... )
+{ "ok" : 1 }
+
+> db.firstYears.find({}, { _id: 0 } )
+{ "sID" : 22001, "name" : "Alex", "year" : 1, "score" : 4 }
+{ "sID" : 22021, "name" : "Drew", "year" : 1, "score" : 3.2 }
+{ "sID" : 21022, "name" : "Farmer", "year" : 1, "score" : 2.2 }
+
+
+
+

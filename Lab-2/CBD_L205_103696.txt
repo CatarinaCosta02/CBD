@@ -1,0 +1,616 @@
+Isto é uma database set de Livros
+
+The database foi importada de https://github.com/ozlerhakan/mongodb-json-files
+
+Organização:
+
+{
+    "id":1,
+    "title":value,
+    "isbn":1234,
+    "pageCount":1234,
+    "publishedDate":date,
+    "thumbnailUrl":url,
+    "shortDescription":description,
+    "longDescription":description,
+    "status":status,
+    "authors":
+        [author1, author2, ...],
+    "categories":
+        [categorie1,, categorie2, ...]
+}
+
+------------------------------------------------------------------- ALINEA C) ------------------------------------------------------------
+
+// Liste todas as grades
+
+db.books.count()
+431
+
+// Liste todos os livros
+
+aqui estao alguns exemplos
+
+db.books.find().pretty()
+{
+	"_id" : 3,
+	"title" : "Specification by Example",
+	"isbn" : "1617290084",
+	"pageCount" : 0,
+	"publishedDate" : ISODate("2011-06-03T07:00:00Z"),
+	"thumbnailUrl" : "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/adzic.jpg",
+	"status" : "PUBLISH",
+	"authors" : [
+		"Gojko Adzic"
+	],
+	"categories" : [
+		"Software Engineering"
+	]
+}
+{
+	"_id" : 2,
+	"title" : "Android in Action, Second Edition",
+	"isbn" : "1935182722",
+	"pageCount" : 592,
+	"publishedDate" : ISODate("2011-01-14T08:00:00Z"),
+	"thumbnailUrl" : "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/ableson2.jpg",
+	"shortDescription" : "Android in Action, Second Edition is a comprehensive tutorial for Android developers. Taking you far beyond \"Hello Android,\" this fast-paced book puts you in the driver's seat as you learn important architectural concepts and implementation strategies. You'll master the SDK, build WebKit apps using HTML 5, and even learn to extend or replace Android's built-in features by building useful and intriguing examples. ",
+	"longDescription" : "When it comes to mobile apps, Android can do almost anything   and with this book, so can you! Android runs on mobile devices ranging from smart phones to tablets to countless special-purpose gadgets. It's the broadest mobile platform available.    Android in Action, Second Edition is a comprehensive tutorial for Android developers. Taking you far beyond \"Hello Android,\" this fast-paced book puts you in the driver's seat as you learn important architectural concepts and implementation strategies. You'll master the SDK, build WebKit apps using HTML 5, and even learn to extend or replace Android's built-in features by building useful and intriguing examples. ",
+	"status" : "PUBLISH",
+	"authors" : [
+		"W. Frank Ableson",
+		"Robi Sen"
+	],
+	"categories" : [
+		"Java"
+	]
+}
+{
+	"_id" : 4,
+	"title" : "Flex 3 in Action",
+	"isbn" : "1933988746",
+	"pageCount" : 576,
+	"publishedDate" : ISODate("2009-02-02T08:00:00Z"),
+	"thumbnailUrl" : "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/ahmed.jpg",
+	"longDescription" : "New web applications require engaging user-friendly interfaces   and the cooler, the better. With Flex 3, web developers at any skill level can create high-quality, effective, and interactive Rich Internet Applications (RIAs) quickly and easily. Flex removes the complexity barrier from RIA development by offering sophisticated tools and a straightforward programming language so you can focus on what you want to do instead of how to do it. And now that the major components of Flex are free and open-source, the cost barrier is gone, as well!    Flex 3 in Action is an easy-to-follow, hands-on Flex tutorial. Chock-full of examples, this book goes beyond feature coverage and helps you put Flex to work in real day-to-day tasks. You'll quickly master the Flex API and learn to apply the techniques that make your Flex applications stand out from the crowd.    Interesting themes, styles, and skins  It's in there.  Working with databases  You got it.  Interactive forms and validation  You bet.  Charting techniques to help you visualize data  Bam!  The expert authors of Flex 3 in Action have one goal   to help you get down to business with Flex 3. Fast.    Many Flex books are overwhelming to new users   focusing on the complexities of the language and the super-specialized subjects in the Flex eco-system; Flex 3 in Action filters out the noise and dives into the core topics you need every day. Using numerous easy-to-understand examples, Flex 3 in Action gives you a strong foundation that you can build on as the complexity of your projects increases.",
+	"status" : "PUBLISH",
+	"authors" : [
+		"Tariq Ahmed with Jon Hirschi",
+		"Faisal Abid"
+	],
+	"categories" : [
+		"Internet"
+	]
+}
+
+
+
+2) Liste a shortDescription e o status dos livros que têm como title "Unlocking Android" e "Android in Action, Second Edition"
+
+db.books.find({$or : [{title:"Unlocking Android"}, {title:"Android in Action, Second Edition"}]}, {"shortDescription": 1, "status": 1, "title":1} ).pretty()
+{
+	"_id" : 2,
+	"title" : "Android in Action, Second Edition",
+	"shortDescription" : "Android in Action, Second Edition is a comprehensive tutorial for Android developers. Taking you far beyond \"Hello Android,\" this fast-paced book puts you in the driver's seat as you learn important architectural concepts and implementation strategies. You'll master the SDK, build WebKit apps using HTML 5, and even learn to extend or replace Android's built-in features by building useful and intriguing examples. ",
+	"status" : "PUBLISH"
+}
+{
+	"_id" : 1,
+	"title" : "Unlocking Android",
+	"shortDescription" : "Unlocking Android: A Developer's Guide provides concise, hands-on instruction for the Android operating system and development tools. This book teaches important architectural concepts in a straightforward writing style and builds on this with practical and useful examples throughout.",
+	"status" : "PUBLISH"
+}
+
+3) Liste todos os livros que tenham mais de 500 paginas
+
+db.books.find({"pageCount": {$gte: 500}}, { "pageCount": 1, "title":1} ).pretty()
+
+{
+	"_id" : 2,
+	"title" : "Android in Action, Second Edition",
+	"pageCount" : 592
+}
+{ "_id" : 4, "title" : "Flex 3 in Action", "pageCount" : 576 }
+{ "_id" : 5, "title" : "Flex 4 in Action", "pageCount" : 600 }
+{ "_id" : 11, "title" : "Flexible Rails", "pageCount" : 592 }
+{
+	"_id" : 16,
+	"title" : "Brownfield Application Development in .NET",
+	"pageCount" : 550
+}
+{
+	"_id" : 19,
+	"title" : "Jaguar Development with PowerBuilder 7",
+	"pageCount" : 550
+}
+{
+	"_id" : 18,
+	"title" : "Distributed Application Development with PowerBuilder 6.0",
+	"pageCount" : 504
+}
+{
+	"_id" : 21,
+	"title" : "3D User Interfaces with Java 3D",
+	"pageCount" : 520
+}
+{
+	"_id" : 24,
+	"title" : "Java Persistence with Hibernate",
+	"pageCount" : 880
+}
+{ "_id" : 32, "title" : "Ruby for Rails", "pageCount" : 532 }
+{ "_id" : 36, "title" : "ASP.NET 4.0 in Practice", "pageCount" : 504 }
+{
+	"_id" : 31,
+	"title" : "Building Secure and Reliable Network Applications",
+	"pageCount" : 591
+}
+{ "_id" : 33, "title" : "The Well-Grounded Rubyist", "pageCount" : 520 }
+{ "_id" : 55, "title" : "Object Oriented Perl", "pageCount" : 512 }
+{ "_id" : 54, "title" : "Android in Practice", "pageCount" : 500 }
+{ "_id" : 60, "title" : "Ajax in Practice", "pageCount" : 536 }
+{
+	"_id" : 61,
+	"title" : "Prototype and Scriptaculous in Action",
+	"pageCount" : 544
+}
+{ "_id" : 63, "title" : "POJOs in Action", "pageCount" : 592 }
+{ "_id" : 59, "title" : "Ajax in Action", "pageCount" : 680 }
+{ "_id" : 66, "title" : "Seam in Action", "pageCount" : 624 }
+
+4) Liste o title, o pageCount e o statusde todos os livros, com o title feito por ordem decrescente
+
+db.books.find({}, { "pageCount": 1, "title":1, "status" : 1} ).sort({"title":-1}).pretty()
+{
+	"_id" : 263,
+	"title" : "wxPython in Action",
+	"pageCount" : 620,
+	"status" : "PUBLISH"
+}
+{
+	"_id" : 761,
+	"title" : "jQuery in Action, Third Edition",
+	"pageCount" : 0,
+	"status" : "MEAP"
+}
+{
+	"_id" : 30,
+	"title" : "jQuery in Action, Second Edition",
+	"pageCount" : 488,
+	"status" : "PUBLISH"
+}
+{
+	"_id" : 29,
+	"title" : "jQuery in Action",
+	"pageCount" : 376,
+	"status" : "PUBLISH"
+}
+{
+	"_id" : 744,
+	"title" : "jQuery UI in Action",
+	"pageCount" : 0,
+	"status" : "MEAP"
+}
+{
+	"_id" : 204,
+	"title" : "iText in Action, Second Edition",
+	"pageCount" : 600,
+	"status" : "PUBLISH"
+}
+{
+	"_id" : 203,
+	"title" : "iText in Action",
+	"pageCount" : 688,
+	"status" : "PUBLISH"
+}
+{
+	"_id" : 42,
+	"title" : "iPhone in Action",
+	"pageCount" : 472,
+	"status" : "PUBLISH"
+}
+{
+	"_id" : 313,
+	"title" : "iPhone and iPad in Action",
+	"pageCount" : 450,
+	"status" : "PUBLISH"
+}
+{
+	"_id" : 41,
+	"title" : "iOS in Practice",
+	"pageCount" : 325,
+	"status" : "PUBLISH"
+}
+{
+	"_id" : 692,
+	"title" : "iOS 7 in Action",
+	"pageCount" : 0,
+	"status" : "PUBLISH"
+}
+{
+	"_id" : 161,
+	"title" : "iOS 4 in Action",
+	"pageCount" : 504,
+	"status" : "PUBLISH"
+}
+{
+	"_id" : 26,
+	"title" : "iBATIS in Action",
+	"pageCount" : 384,
+	"status" : "PUBLISH"
+}
+{
+	"_id" : 7,
+	"title" : "Zend Framework in Action",
+	"pageCount" : 432,
+	"status" : "PUBLISH"
+}
+{
+	"_id" : ObjectId("53c2ae8528d75d572c06ad9d"),
+	"title" : "XSLT Quickly",
+	"pageCount" : 320,
+	"status" : "PUBLISH"
+}
+{
+	"_id" : 332,
+	"title" : "XML Programming with VB and ASP",
+	"pageCount" : 320,
+	"status" : "PUBLISH"
+}
+{
+	"_id" : 123,
+	"title" : "XML Parsing with Digester",
+	"pageCount" : 0,
+	"status" : "PUBLISH"
+}
+{
+	"_id" : 318,
+	"title" : "XDoclet in Action",
+	"pageCount" : 624,
+	"status" : "PUBLISH"
+}
+{
+	"_id" : 120,
+	"title" : "Working with the Logging and Discovery Components",
+	"pageCount" : 0,
+	"status" : "PUBLISH"
+}
+{
+	"_id" : 266,
+	"title" : "Working with Objects",
+	"pageCount" : 420,
+	"status" : "PUBLISH"
+}
+
+5) Liste o title, a categories e o status todos os livros que nao têm status igual a "PUBLISH" 
+
+ db.books.find({"status": {$ne: 'PUBLISH'}},{"title": 1, "categories": 1, "status":1}).pretty()
+{
+	"_id" : 146,
+	"title" : "Distributed Agile in Action",
+	"status" : "MEAP",
+	"categories" : [
+		"Software Engineering"
+	]
+}
+{
+	"_id" : 165,
+	"title" : "Android in Practice",
+	"status" : "MEAP",
+	"categories" : [
+		"Mobile Technology"
+	]
+}
+{
+	"_id" : 175,
+	"title" : "Groovy in Action, Second Edition",
+	"status" : "MEAP",
+	"categories" : [
+		"Java"
+	]
+}
+{
+	"_id" : 189,
+	"title" : "F# in Action",
+	"status" : "MEAP",
+	"categories" : [
+		"Microsoft .NET"
+	]
+}
+{
+	"_id" : 335,
+	"title" : "The Engaging Web",
+	"status" : "MEAP",
+	"categories" : [
+		"Web Development"
+	]
+}
+{
+	"_id" : 550,
+	"title" : "Big Data",
+	"status" : "MEAP",
+	"categories" : [ ]
+}
+{
+	"_id" : 562,
+	"title" : "Java Persistence with Hibernate, Second Edition",
+	"status" : "MEAP",
+	"categories" : [ ]
+}
+{
+	"_id" : 599,
+	"title" : "Augmented Reality Revealed",
+	"status" : "MEAP",
+	"categories" : [ ]
+}
+{
+	"_id" : 607,
+	"title" : "Building Well-Structured JavaScript Applications",
+	"status" : "MEAP",
+	"categories" : [ ]
+}
+{
+	"_id" : 640,
+	"title" : "Functional Programming in Scala",
+	"status" : "MEAP",
+	"categories" : [ ]
+}
+{
+	"_id" : 637,
+	"title" : "Neo4j in Action",
+	"status" : "MEAP",
+	"categories" : [ ]
+}
+{
+	"_id" : 642,
+	"title" : "Node.js in Practice",
+	"status" : "MEAP",
+	"categories" : [ ]
+}
+{
+	"_id" : 648,
+	"title" : "RabbitMQ in Depth",
+	"status" : "MEAP",
+	"categories" : [ ]
+}
+{
+	"_id" : 649,
+	"title" : "Akka in Action",
+	"status" : "MEAP",
+	"categories" : [ ]
+}
+{
+	"_id" : 657,
+	"title" : "Grails in Action, Second Edition",
+	"status" : "MEAP",
+	"categories" : [ ]
+}
+{
+	"_id" : 671,
+	"title" : "Spring in Action, Fourth Edition",
+	"status" : "MEAP",
+	"categories" : [ ]
+}
+{
+	"_id" : 676,
+	"title" : "The Responsive Web",
+	"status" : "MEAP",
+	"categories" : [ ]
+}
+{
+	"_id" : 678,
+	"title" : "SBT in Action",
+	"status" : "MEAP",
+	"categories" : [ ]
+}
+{
+	"_id" : 683,
+	"title" : "AngularJS in Action",
+	"status" : "MEAP",
+	"categories" : [ ]
+}
+{
+	"_id" : 681,
+	"title" : "Scalatra in Action",
+	"status" : "MEAP",
+	"categories" : [ ]
+}
+
+6) Liste o isbn, o title e o status de todos os livros onde o status não é igual a PUBLISH e o isbn por ordem crescente
+
+db.books.find({"status": {$ne: 'PUBLISH'}},{"title": 1, "isbn": 1, "status":1}).sort({"isbn":1}).pretty()
+{
+	"_id" : 599,
+	"title" : "Augmented Reality Revealed",
+	"isbn" : "1617290165",
+	"status" : "MEAP"
+}
+{
+	"_id" : 550,
+	"title" : "Big Data",
+	"isbn" : "1617290343",
+	"status" : "MEAP"
+}
+{
+	"_id" : 562,
+	"title" : "Java Persistence with Hibernate, Second Edition",
+	"isbn" : "1617290459",
+	"status" : "MEAP"
+}
+{
+	"_id" : 607,
+	"title" : "Building Well-Structured JavaScript Applications",
+	"isbn" : "1617290599",
+	"status" : "MEAP"
+}
+{
+	"_id" : 640,
+	"title" : "Functional Programming in Scala",
+	"isbn" : "1617290653",
+	"status" : "MEAP"
+}
+{
+	"_id" : 637,
+	"title" : "Neo4j in Action",
+	"isbn" : "1617290769",
+	"status" : "MEAP"
+}
+{
+	"_id" : 642,
+	"title" : "Node.js in Practice",
+	"isbn" : "1617290939",
+	"status" : "MEAP"
+}
+{
+	"_id" : 657,
+	"title" : "Grails in Action, Second Edition",
+	"isbn" : "1617290963",
+	"status" : "MEAP"
+}
+{
+	"_id" : 648,
+	"title" : "RabbitMQ in Depth",
+	"isbn" : "1617291005",
+	"status" : "MEAP"
+}
+{
+	"_id" : 649,
+	"title" : "Akka in Action",
+	"isbn" : "1617291013",
+	"status" : "MEAP"
+}
+{
+	"_id" : 658,
+	"title" : "Rails 4 in Action",
+	"isbn" : "1617291099",
+	"status" : "MEAP"
+}
+{
+	"_id" : 671,
+	"title" : "Spring in Action, Fourth Edition",
+	"isbn" : "161729120X",
+	"status" : "MEAP"
+}
+{
+	"_id" : 676,
+	"title" : "The Responsive Web",
+	"isbn" : "1617291242",
+	"status" : "MEAP"
+}
+{
+	"_id" : 678,
+	"title" : "SBT in Action",
+	"isbn" : "1617291277",
+	"status" : "MEAP"
+}
+{
+	"_id" : 681,
+	"title" : "Scalatra in Action",
+	"isbn" : "1617291293",
+	"status" : "MEAP"
+}
+{
+	"_id" : 685,
+	"title" : "F# Deep Dives",
+	"isbn" : "1617291323",
+	"status" : "MEAP"
+}
+{
+	"_id" : 683,
+	"title" : "AngularJS in Action",
+	"isbn" : "1617291331",
+	"status" : "MEAP"
+}
+{
+	"_id" : 684,
+	"title" : "Software Development Metrics",
+	"isbn" : "1617291358",
+	"status" : "MEAP"
+}
+{
+	"_id" : 689,
+	"title" : "R in Action, Second Edition",
+	"isbn" : "1617291382",
+	"status" : "MEAP"
+}
+{
+	"_id" : 688,
+	"title" : "PostGIS in Action, Second Edition",
+	"isbn" : "1617291390",
+	"status" : "MEAP"
+}
+
+--------------------------------------------------------------------------------- ALINEA B) ----------------------------------------------------------------------
+
+1) Apresente a categoria menos utilizada pelos livros
+
+db.books.aggregate([{$group:{ _id:"$categories", sum:{$sum:1}}},{$sort:{sum:1}},{$limit:1}])
+
+{ "_id" : [ "Java", "Software Development" ], "sum" : 1 }
+
+2) Apresente o status mais utilizado pelos livros
+
+db.books.aggregate([{$group:{ _id:"$status", sum:{$sum:1}}},{$sort:{sum:-1}},{$limit:1}])
+
+{ "_id" : "PUBLISH", "sum" : 363 }
+
+3) Apresente o numero de livros que têm pageCount igual a 500
+
+db.books.aggregate([{$match: {"pageCount":500}},{$count: 'num_books'}])
+
+{ "num_books" : 7 }
+
+4) Apresente o numero de livros que existem de cada categoria
+
+db.books.aggregate([{$group : { _id : "$categories", number_books : {$sum : 1}}}])
+{ "_id" : [ "Java", "Software Development" ], "number_books" : 1 }
+{ "_id" : [ "Computer Graphics", "Perl" ], "number_books" : 1 }
+{ "_id" : [ "Java", "Business" ], "number_books" : 1 }
+{ "_id" : [ "In Action" ], "number_books" : 1 }
+{ "_id" : [ "Programming", "Python" ], "number_books" : 1 }
+{ "_id" : [ "SOA" ], "number_books" : 1 }
+{ "_id" : [ "Client-Server", "Networking" ], "number_books" : 3 }
+{ "_id" : [ "PHP" ], "number_books" : 1 }
+{ "_id" : [ "Business", "Software Engineering" ], "number_books" : 1 }
+{ "_id" : [ "Software Engineering", "Theory" ], "number_books" : 2 }
+{ "_id" : [ "Java", "Internet", "Computer Graph" ], "number_books" : 1 }
+{ "_id" : [ "Internet", "Networking" ], "number_books" : 1 }
+{ "_id" : [ "Perl", "Client-Server" ], "number_books" : 1 }
+{ "_id" : [ "Object-Technology Programming", "" ], "number_books" : 1 }
+{ "_id" : [ "Internet", "Networking", "Miscella" ], "number_books" : 1 }
+{ "_id" : [ "Internet", "Java" ], "number_books" : 2 }
+{ "_id" : [ "PowerBuilder" ], "number_books" : 6 }
+{ "_id" : [ ], "number_books" : 160 }
+{ "_id" : [ "Programming" ], "number_books" : 11 }
+{ "_id" : [ "Object-Oriented Programming" ], "number_books" : 2 }
+
+5) Apresente o numero de livros escritos pelo autor 'Tariq Ahmed'
+
+db.books.aggregate([{$match: {"authors": "Tariq Ahmed"}},{$group: {"_id": "$title"}},{$count: "number_books"}])
+
+{ "number_books" : 1 }
+
+6) Apresente os 5 pageCount mais utilizados pelos livros
+
+db.books.aggregate([{$group:{ _id:"$pageCount", sum:{$sum:1}}},{$sort:{sum:-1}},{$limit:5}])
+{ "_id" : 0, "sum" : 166 }
+{ "_id" : 400, "sum" : 11 }
+{ "_id" : 375, "sum" : 8 }
+{ "_id" : 450, "sum" : 8 }
+{ "_id" : 325, "sum" : 8 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
