@@ -1,0 +1,93 @@
+INSERT INTO Owner (id, username, name, email, phone) VALUES (1, 'Aristóteles', 'Aristóteles', 'aristoteles@ua.pt', '961444444');
+INSERT INTO Owner (id, username, name, email, phone) VALUES (2, 'Platão', 'Platão', 'platao@ua.pt', '961555555');
+INSERT INTO Owner (id, username, name, email, phone) VALUES (3, 'Nietzsche', 'Nietzsche', 'nie@ua.pt', '961333333');
+INSERT INTO Owner (id, username, name, email, phone) VALUES (4, 'Wittgenstein', 'Wittgenstein', 'Wittgenstein@ua.pt', '961222222');
+INSERT INTO Owner (id, username, name, email, phone) VALUES (5, 'Descartes', 'Descartes', 'descartes@ua.pt', '961111111');
+INSERT INTO Owner (id, username, name, email, phone) VALUES (6, 'Hegel', 'Hegel', 'hegel@ua.pt', '961000000');
+INSERT INTO Owner (id, username, name, email, phone) VALUES (7, 'Kant', 'Kant', 'Kant@ua.pt', '961666666');
+INSERT INTO Owner (id, username, name, email, phone) VALUES (8, 'Sócrates', 'Sócrates', 'socrates@ua.pt', '961777777');
+INSERT INTO Owner (id, username, name, email, phone) VALUES (9, 'Mário', 'Mário Sousa', 'mario@ua.pt', '961741852');
+INSERT INTO Owner (id, username, name, email, phone) VALUES (10, 'Sebastião', 'Dom Sebastiao', 'sebas@ua.pt', '961789789');
+INSERT INTO Owner (id, username, name, email, phone) VALUES (11, 'Ze', 'Ze Maria', 'ze@ua.pt', '961456456');
+INSERT INTO Owner (id, username, name, email, phone) VALUES (12, 'Osvaldo', 'Osvaldo Sousa', 'sousa@ua.pt', '961123123');
+
+
+INSERT INTO Pet(id,name,specie_id,birth_date) VALUES (1, 'Jadeite',1,toTimestamp(now()));
+INSERT INTO Pet(id,name,specie_id,birth_date) VALUES (2, 'Diamante ',2,toTimestamp(now()));
+INSERT INTO Pet(id,name,specie_id,birth_date) VALUES (3, 'Esmeralda',3,toTimestamp(now()));
+INSERT INTO Pet(id,name,specie_id,birth_date) VALUES (4, 'Opala',4,toTimestamp(now()));
+INSERT INTO Pet(id,name,specie_id,birth_date) VALUES (5, 'Espinela',5,toTimestamp(now()));
+INSERT INTO Pet(id,name,specie_id,birth_date) VALUES (6, 'Safira',6,toTimestamp(now()));
+INSERT INTO Pet(id,name,specie_id,birth_date) VALUES (7, 'Rubi',7,toTimestamp(now()));
+INSERT INTO Pet(id,name,specie_id,birth_date) VALUES (8, 'Cristal',8,toTimestamp(now()));
+INSERT INTO Pet(id,name,specie_id,birth_date) VALUES (9, 'Ágata',9,toTimestamp(now()));
+INSERT INTO Pet(id,name,specie_id,birth_date) VALUES (10, 'Granada',10,toTimestamp(now()));
+INSERT INTO Pet(id,name,specie_id,birth_date) VALUES (11, 'Citrino',11,toTimestamp(now()));
+INSERT INTO Pet(id,name,specie_id,birth_date) VALUES (12, 'Quartzo',12,toTimestamp(now()));
+
+
+INSERT INTO Shop(id,name,informacoes,prices_id,localizacao) VALUES (1, 'The Star Pet', ['thestarpey@ua.pt','961111111'],1,{'PDL':'R. da Juventude, 9500-211 Ponta Delgada'});
+INSERT INTO Shop(id,name,informacoes,prices_id,localizacao) VALUES (2, 'The Fluffy Shop', ['theflufyyshop@ua.pt','961222222'],2,{'LX': 'Av. Dom João II 40, 1990-094 Lisboa'});
+INSERT INTO Shop(id,name,informacoes,prices_id,localizacao) VALUES (3, 'Pet Haven', ['pethaven@ua.pt','961333333'],3,{'USA': '185 Greenwich St, New York, NY 10007, Estados Unidos'});
+INSERT INTO Shop(id,name,informacoes,prices_id,localizacao) VALUES (4, 'Paws Up', ['pawsup@ua.pt','961444444'],4, {'MDR': ' P.º de la Florida, 2, 28008 Madrid, Espanha'});
+INSERT INTO Shop(id,name,informacoes,prices_id,localizacao) VALUES (5, 'Pet Shop', ['thestarpey@ua.pt','961111111'],5,{'PDL':'R. da Juventude, 9500-211 Ponta Delgada'});
+
+INSERT INTO PetOwner(id,pet_id,owner_id,name,pet_name) VALUES (1,1,1,'Aristóteles','Jadeite');
+INSERT INTO PetOwner(id,pet_id,owner_id,name,pet_name) VALUES (2,2,2,'Platão','Diamante');
+INSERT INTO PetOwner(id,pet_id,owner_id,name,pet_name) VALUES (3,3,2,'Platão','Esmeralda');
+INSERT INTO PetOwner(id,pet_id,owner_id,name,pet_name) VALUES (4,4,3,'Nietzsche','Opala');
+INSERT INTO PetOwner(id,pet_id,owner_id,name,pet_name) VALUES (5,5,7,'Kant','Espinela');
+INSERT INTO PetOwner(id,pet_id,owner_id,name,pet_name) VALUES (6,6,4,'Wittgenstein','Safira');
+INSERT INTO PetOwner(id,pet_id,owner_id,name,pet_name) VALUES (7,7,6,'Hegel','Rubi');
+INSERT INTO PetOwner(id,pet_id,owner_id,name,pet_name) VALUES (8,8,8,'Sócrates','Cristal');
+INSERT INTO PetOwner(id,pet_id,owner_id,name,pet_name) VALUES (9,9,5,'Descartes','Ágata');
+INSERT INTO PetOwner(id,pet_id,owner_id,name,pet_name) VALUES (10,10,5,'Descartes','Granada');
+INSERT INTO PetOwner(id,pet_id,owner_id,name,pet_name) VALUES (11,11,5,'Descartes','Citrino');
+INSERT INTO PetOwner(id,pet_id,owner_id,name,pet_name) VALUES (12,12,5,'Descartes','Quartzo');
+
+
+INSERT INTO Species(id,pet_id, pet_name, specie_pet) VALUES (1,1,'Jadeite',{'Cat','American Curl'});
+INSERT INTO Species(id,pet_id, pet_name, specie_pet) VALUES (2,2,'Diamante',{'Dog','Alaskan Malamute'});
+INSERT INTO Species(id,pet_id, pet_name, specie_pet) VALUES (3,3,'Esmeralda',{'Fish','Neon Tetra'});
+INSERT INTO Species(id,pet_id, pet_name, specie_pet) VALUES (4,4,'Opala',{'Cat', 'Persian'});
+INSERT INTO Species(id,pet_id, pet_name, specie_pet) VALUES (5,5,'Espinela',{'Cat','Russian Blue'});
+INSERT INTO Species(id,pet_id, pet_name, specie_pet) VALUES (6,6,'Safira',{'Bird', 'Parakeet'});
+INSERT INTO Species(id,pet_id, pet_name, specie_pet) VALUES (7,7,'Rubi',{'Bird', 'Canarie'});
+INSERT INTO Species(id,pet_id, pet_name, specie_pet) VALUES (8,8,'Cristal',{'Dog', 'Beagle'});
+INSERT INTO Species(id,pet_id, pet_name, specie_pet) VALUES (9,9,'Ágata',{'Dog', 'Bolognese'});
+INSERT INTO Species(id,pet_id, pet_name, specie_pet) VALUES (10,10,'Granada',{'Fish','Guppie'});
+INSERT INTO Species(id,pet_id, pet_name, specie_pet) VALUES (11,11,'Citrino',{'Cat','Siames'});
+INSERT INTO Species(id,pet_id, pet_name, specie_pet) VALUES (12,12,'Quartzo',{'Fish','Guppie'});
+
+INSERT INTO Prices(id,specie_id,shop_id,price,product,shop_name) VALUES (1,1,1,'5.20', {'Areia de gato', '5.20'}, 'The Star Pet');
+INSERT INTO Prices(id,specie_id,shop_id,price,product,shop_name) VALUES (2,1,4,'3.20', {'Areia de gato', '3.20'}, 'Paws Up');
+INSERT INTO Prices(id,specie_id,shop_id,price,product,shop_name) VALUES (3,8,3,'6.20', {'Ração de Cão', '6.20'}, 'Pet Haven');
+INSERT INTO Prices(id,specie_id,shop_id,price,product,shop_name) VALUES (4,8,1,'5.00', {'Ração de Cão', '5.00'}, 'The Star Pet');
+INSERT INTO Prices(id,specie_id,shop_id,price,product,shop_name) VALUES (5,8,4,'5.20', {'Ração de Cão', '5.20'}, 'Paws Up');
+INSERT INTO Prices(id,specie_id,shop_id,price,product,shop_name) VALUES (6,9,2,'4.00', {'Ração de Cão', '4.00'}, 'The Fluffy Shop');
+INSERT INTO Prices(id,specie_id,shop_id,price,product,shop_name) VALUES (7,7,3,'7.20', {'Gaiolas', '7.20'}, 'Pet Haven');
+INSERT INTO Prices(id,specie_id,shop_id,price,product,shop_name) VALUES (8,6,3,'3.20', {'Gaiolas', '3.20'}, 'Pet Haven');
+INSERT INTO Prices(id,specie_id,shop_id,price,product,shop_name) VALUES (9,1,1,'5.20', {'Aquario', '5.20'}, 'The Star Pet');
+INSERT INTO Prices(id,specie_id,shop_id,price,product,shop_name) VALUES (10,3,1,'8.20', {'Aquario', '8.20'}, 'Paws Up');
+INSERT INTO Prices(id,specie_id,shop_id,price,product,shop_name) VALUES (11,10,2,'5.20', {'Aquario', '5.20'}, 'The Fluffy Shop');
+INSERT INTO Prices(id,specie_id,shop_id,price,product,shop_name) VALUES (12,12,2,'10.00', {'Aquario', '10.00'}, 'The Fluffy Shop');
+INSERT INTO Prices(id,specie_id,shop_id,price,product,shop_name) VALUES (13,11,2,'8.00', {'Comida de Gato', '8.00'}, 'The Fluffy Shop');
+
+// indexes
+
+CREATE INDEX IF NOT EXISTS ON PetOwner(owner_id);
+CREATE INDEX IF NOT EXISTS ON Species(pet_name);
+CREATE INDEX IF NOT EXISTS ON Species(specie_pet);
+CREATE INDEX IF NOT EXISTS ON Prices(shop_name);
+CREATE INDEX IF NOT EXISTS ON Shop(localizacao);
+CREATE INDEX IF NOT EXISTS ON Prices(price);
+CREATE INDEX IF NOT EXISTS ON Shop(informacoes);
+
+
+
+
+
+
+
+
+

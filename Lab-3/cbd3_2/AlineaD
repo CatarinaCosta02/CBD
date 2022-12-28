@@ -1,0 +1,105 @@
+-- 1. Os últimos 3 comentários introduzidos para um vídeo;
+
+SELECT * from Comentario_Video WHERE video_id = 14 LIMIT 3;
+
+ video_id | comment_time_stamp              | id | comment
+----------+---------------------------------+----+----------------------------------------------------------------------------------------------------------------------------------------
+       14 | 2022-12-03 19:17:20.761000+0000 | 14 |                                                               Freddie Mercury controlling the crowd at Live Aid always gives me chills
+       14 | 2022-12-03 19:17:20.756000+0000 | 13 |                                                                                                         So glad Chester made the list.
+       14 | 2022-12-03 19:17:20.749000+0000 | 11 | I know they are not everyone’s cup of tea but Matt Bellamy from Muse deserves a mention. Incredible guitarist and stunning live vocal.
+       
+-- 2. Lista das tags de determinado vídeo;
+
+SELECT etiquetas from Video WHERE id = 4;
+
+ etiquetas
+--------------------------
+ {'Football', 'Portugal'}
+
+-- 3. Todos os vídeos com a tag Aveiro;
+
+Não tenho nehuma etiquta aveiro portanto o resultado sera em branco.
+
+fazer com etiqueta = 'Music'
+
+CREATE INDEX IF NOT EXISTS ON Video(etiquetas);
+
+SELECT * from Video WHERE etiquetas CONTAINS 'Music';
+
+
+ id | username  | upload_time_stamp               | description                                                                                       | etiquetas                       | video_name
+----+-----------+---------------------------------+---------------------------------------------------------------------------------------------------+---------------------------------+----------------------------------------------
+ 11 |   Teófilo | 2022-12-06 16:08:40.888000+0000 |                           Claude Debussy (22 August 1862 – 25 March 1918) was a French composer.  |            {'Debussy', 'Music'} |                          The Best of Debussy
+  1 |  Catarina | 2022-12-06 16:08:40.830000+0000 |                                                              Mozart: Classical Music Masterpieces |             {'Mozart', 'Music'} |                           The Best of Mozart
+  2 | Cristovao | 2022-12-06 16:08:40.836000+0000 |                                                              Chopin: Classical Piano Masterpieces |             {'Chopin', 'Music'} |            Chopin - Relaxing Classical Piano
+ 14 |  Humberto | 2022-12-06 16:08:40.907000+0000 | These guys rock! For this list, we’ll be looking at the very best lead vocalists in rock history. |               {'Music', 'Rock'} |    Top 20 Greatest Rock Frontmen of All Time
+  3 |       Eça | 2022-12-06 16:08:40.842000+0000 |                             National Anthem of Portugal - "A Portuguesa" (Song of the Portuguese) | {'Anthem', 'Music', 'Portugal'} | Portuguese National Anthem - "A Portuguesa" 
+
+
+-- 4. Os últimos 5 eventos de determinado vídeo realizados por um utilizador;
+
+SELECT * from Eventos  WHERE video_id = 3  and username = 'Eça';
+
+ video_id | username | action | registo_temporal
+----------+----------+--------+---------------------------------
+        3 |      Eça |   stop | 2022-12-03 17:13:59.019000+0000
+
+-- 5. Vídeos partilhados por determinado utilizador (maria1987, por exemplo) num determinado período de tempo (Agosto de 2017, por exemplo);
+
+SELECT * from Video WHERE username = 'Cristiano' and upload_time_stamp < '2022-12-10 17:13:16.379Z' ALLOW FILTERING;
+
+// tive que usar ALLOW FILTERING, a sulucao seria criar um index
+
+ id | username  | upload_time_stamp               | description                           | etiquetas                             | video_name
+----+-----------+---------------------------------+---------------------------------------+---------------------------------------+-----------------------------------------------------------
+  7 | Cristiano | 2022-12-03 17:13:16.379000+0000 | Cristiano Ronaldo: 50 best goals ever | {'Cristiano', 'Football', 'Portugal'} | Cristiano Ronaldo 50 Legendary Goals Impossible To Forget
+
+-- 6. Os últimos 10 vídeos, ordenado inversamente pela data da partilhada;
+
+Neste caso, como a nossa primary key tem duas partes a clustering key e a partition, para podermos fazer qualquer querie, teremos que a ordenao sehundo essa formação. Não iriamos poder ordenar neste caso, pois como a key é o id ( este é unico) e a data partilhada um clustering, nao iiria permitir a ordenação somente por data partilhada.
+
+
+-- 7. Todos os seguidores (followers) de determinado vídeo;
+
+SELECT username from Video_followers WHERE video_id = 14;
+
+ username
+----------
+ Humberto
+
+-- 8. Todos os comentários (dos vídeos) que determinado utilizador está a seguir (following);
+
+Não é possivel fazer este tipo de operação em so uma querie. Neste caso teria que se submeter uma operação JOIN que nao existe em Cassandra.
+
+
+-- 9. Os 5 vídeos com maior rating;
+
+mesmo problema da alinea 6. Neste caso ratind nem faz parte da primary key, teria que se fazer um index.
+
+-- 10. Uma query que retorne todos os vídeos e que mostre claramente a forma pela qual estão
+ordenados;
+
+Não é permitido devido ao problema em 9 e em 6
+
+-- 11. Lista com as Tags existentes e o número de vídeos catalogados com cada uma delas;
+
+Em cassandra nao é premitido fazer aggregação.
+
+-- 12. SELECT * from Video_followers  WHERE video_id > 6 ALLOW FILTERING;
+
+// tive que usar ALLOW FILTERING, a sulucao seria criar um index
+
+ video_id | username
+----------+-----------
+       10 |     Vasco
+       16 |    Miguel
+       13 |    Antero
+       11 |   Teófilo
+        8 |    Camilo
+       15 |  Fernando
+        7 | Cristiano
+        9 |    Fernão
+       14 |  Humberto
+       12 |   Almeida
+
+

@@ -1,0 +1,156 @@
+cqlsh> SHOW VERSION
+[cqlsh 6.0.0 | Cassandra 4.0.7 | CQL spec 3.4.5 | Native protocol v5]
+cqlsh> SHOW HOST
+Connected to Test Cluster at 127.0.0.1:9042
+cqlsh> CREATE KEYSPACE testingout
+   ...   WITH REPLICATION = { 
+   ...    'class' : 'SimpleStrategy', 
+   ...    'replication_factor' : 1 
+   ...   };
+cqlsh> USE testingout ;
+cqlsh:testingout> CREATE TABLE tabletest (
+              ...                      name TEXT PRIMARY KEY,
+              ...                      surname TEXT,
+              ...                      phone INT
+              ...                    );
+cqlsh:testingout> ALTER TABLE tabletest
+              ... ADD tabletest_email text;
+cqlsh:testingout> select * from tabletest;
+
+ name | phone     | surname | tabletest_email
+------+-----------+---------+-----------------
+ John | 456123789 | Johnson |            null
+(1 rows)
+cqlsh:testingout> ALTER TABLE tabletest DROP tabletest_email;
+cqlsh:testingout> select * from tabletest;
+
+ name | phone     | surname
+------+-----------+---------
+ John | 456123789 | Johnson
+
+(1 rows)
+
+cqlsh:testingout> CREATE TABLE emp(
+              ...    emp_id int PRIMARY KEY,
+              ...    emp_name text,
+              ...    emp_city text,
+              ...    emp_sal varint,
+              ...    emp_phone varint
+              ...    );
+cqlsh:testingout> select * from emp;
+
+ emp_id | emp_city | emp_name | emp_phone | emp_sal
+--------+----------+----------+-----------+---------
+
+(0 rows)
+
+
+cqlsh:testingout> ALTER TABLE emp
+              ... ADD emp_email text;
+cqlsh:testingout> select * from emp;
+
+ emp_id | emp_city | emp_email | emp_name | emp_phone | emp_sal
+--------+----------+-----------+----------+-----------+---------
+
+(0 rows)
+cqlsh:testingout> ALTER TABLE emp DROP emp_email;
+cqlsh:testingout> INSERT INTO emp (emp_id, emp_name, emp_city,
+              ...    emp_phone, emp_sal) VALUES(1,'ram', 'Hyderabad', 9848022338, 50000);
+cqlsh:testingout> select * from emp;
+
+ emp_id | emp_city  | emp_name | emp_phone  | emp_sal
+--------+-----------+----------+------------+---------
+      1 | Hyderabad |      ram | 9848022338 |   50000
+
+(1 rows)
+cqlsh:testingout> INSERT INTO emp (emp_id, emp_name, emp_city,
+              ...    emp_phone, emp_sal) VALUES(2,'Amalia Rodrigues', 'Amadoura', 9848022339, 40000);
+cqlsh:testingout> select * from emp;
+
+ emp_id | emp_city  | emp_name         | emp_phone  | emp_sal
+--------+-----------+------------------+------------+---------
+      1 | Hyderabad |              ram | 9848022338 |   50000
+      2 |  Amadoura | Amalia Rodrigues | 9848022339 |   40000
+
+(2 rows)
+cqlsh:testingout> INSERT INTO emp (emp_id, emp_name, emp_city,
+              ...    emp_phone, emp_sal) VALUES(3,'rahman', 'Chennai', 9848022330, 45000);
+cqlsh:testingout> select * from emp;
+
+ emp_id | emp_city  | emp_name         | emp_phone  | emp_sal
+--------+-----------+------------------+------------+---------
+      1 | Hyderabad |              ram | 9848022338 |   50000
+      2 |  Amadoura | Amalia Rodrigues | 9848022339 |   40000
+      3 |   Chennai |           rahman | 9848022330 |   45000
+
+(3 rows)
+cqlsh:testingout>  UPDATE emp SET emp_city='Delhi',emp_sal=50000
+              ...    WHERE emp_id=2;
+cqlsh:testingout> select * from emp;
+
+ emp_id | emp_city  | emp_name         | emp_phone  | emp_sal
+--------+-----------+------------------+------------+---------
+      1 | Hyderabad |              ram | 9848022338 |   50000
+      2 |     Delhi | Amalia Rodrigues | 9848022339 |   50000
+      3 |   Chennai |           rahman | 9848022330 |   45000
+
+(3 rows)
+cqlsh:testingout>  UPDATE emp SET emp_city='Lisboa',emp_sal=50000    WHERE emp_id=2;
+cqlsh:testingout> select * from emp;
+
+ emp_id | emp_city  | emp_name         | emp_phone  | emp_sal
+--------+-----------+------------------+------------+---------
+      1 | Hyderabad |              ram | 9848022338 |   50000
+      2 |    Lisboa | Amalia Rodrigues | 9848022339 |   50000
+      3 |   Chennai |           rahman | 9848022330 |   45000
+
+(3 rows)
+cqlsh:testingout> SELECT emp_name, emp_sal from emp;
+
+ emp_name         | emp_sal
+------------------+---------
+              ram |   50000
+ Amalia Rodrigues |   50000
+           rahman |   45000
+
+(3 rows)
+cqlsh:testingout> CREATE INDEX ON emp(emp_sal);
+cqlsh:testingout> SELECT * FROM emp WHERE emp_sal=50000;
+
+ emp_id | emp_city  | emp_name         | emp_phone  | emp_sal
+--------+-----------+------------------+------------+---------
+      1 | Hyderabad |              ram | 9848022338 |   50000
+      2 |    Lisboa | Amalia Rodrigues | 9848022339 |   50000
+
+(2 rows)
+cqlsh:testingout> DELETE emp_sal FROM emp WHERE emp_id=3;
+cqlsh:testingout> select * from emp;
+
+ emp_id | emp_city  | emp_name         | emp_phone  | emp_sal
+--------+-----------+------------------+------------+---------
+      1 | Hyderabad |              ram | 9848022338 |   50000
+      2 |    Lisboa | Amalia Rodrigues | 9848022339 |   50000
+      3 |   Chennai |           rahman | 9848022330 |    null
+
+(3 rows)
+cqlsh:testingout> DELETE emp_sal FROM emp WHERE emp_id=1;
+cqlsh:testingout> select * from emp;
+
+ emp_id | emp_city  | emp_name         | emp_phone  | emp_sal
+--------+-----------+------------------+------------+---------
+      1 | Hyderabad |              ram | 9848022338 |    null
+      2 |    Lisboa | Amalia Rodrigues | 9848022339 |   50000
+      3 |   Chennai |           rahman | 9848022330 |    null
+
+(3 rows)
+cqlsh:testingout> DELETE FROM emp WHERE emp_id=3;
+cqlsh:testingout> select * from emp;
+
+ emp_id | emp_city  | emp_name         | emp_phone  | emp_sal
+--------+-----------+------------------+------------+---------
+      1 | Hyderabad |              ram | 9848022338 |    null
+      2 |    Lisboa | Amalia Rodrigues | 9848022339 |   50000
+
+(2 rows)
+
+-- todas as queries que nos afastam do contrato de serviço

@@ -1,0 +1,13 @@
+         {"id": 5, "price": "5.20", "product": ["5.20", "Ração de Cão"], "shop_id": 4, "shop_name": "Paws Up", "specie_id": 8}
+             {"id": 10, "price": "8.20", "product": ["8.20", "Aquario"], "shop_id": 1, "shop_name": "Paws Up", "specie_id": 3}
+    {"id": 11, "price": "5.20", "product": ["5.20", "Aquario"], "shop_id": 2, "shop_name": "The Fluffy Shop", "specie_id": 10}
+   {"id": 1, "price": "5.20", "product": ["5.20", "Areia de gato"], "shop_id": 1, "shop_name": "The Star Pet", "specie_id": 1}
+            {"id": 8, "price": "3.20", "product": ["3.20", "Gaiolas"], "shop_id": 3, "shop_name": "Pet Haven", "specie_id": 6}
+        {"id": 2, "price": "3.20", "product": ["3.20", "Areia de gato"], "shop_id": 4, "shop_name": "Paws Up", "specie_id": 1}
+    {"id": 4, "price": "5.00", "product": ["5.00", "Ração de Cão"], "shop_id": 1, "shop_name": "The Star Pet", "specie_id": 8}
+            {"id": 7, "price": "7.20", "product": ["7.20", "Gaiolas"], "shop_id": 3, "shop_name": "Pet Haven", "specie_id": 7}
+ {"id": 6, "price": "4.00", "product": ["4.00", "Ração de Cão"], "shop_id": 2, "shop_name": "The Fluffy Shop", "specie_id": 9}
+         {"id": 9, "price": "5.20", "product": ["5.20", "Aquario"], "shop_id": 1, "shop_name": "The Star Pet", "specie_id": 1}
+       {"id": 3, "price": "6.20", "product": ["6.20", "Ração de Cão"], "shop_id": 3, "shop_name": "Pet Haven", "specie_id": 8}
+
+(11 rows)

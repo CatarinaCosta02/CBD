@@ -1,0 +1,130 @@
+INSERT INTO User(username, name, email, platform_time_stamp) VALUES ('Catarina', 'Catarina Costa','catarinateves02@ua.pt',toTimestamp(now()));
+INSERT INTO User(username, name, email, platform_time_stamp) VALUES ('Cristovao', 'Cristovao Colombo','cristovaocolombo@ua.pt',toTimestamp(now()));
+INSERT INTO User(username, name, email, platform_time_stamp) VALUES ('Eça', 'Eça de Queirós','eça@ua.pt',toTimestamp(now()));
+INSERT INTO User(username, name, email, platform_time_stamp) VALUES ('Amália', 'Amália Rodrigues','amaliarodrigues@ua.pt',toTimestamp(now()));
+INSERT INTO User(username, name, email, platform_time_stamp) VALUES ('Pedro', 'Pedro Alvares Cabral','alvares@ua.pt',toTimestamp(now()));
+INSERT INTO User(username, name, email, platform_time_stamp) VALUES ('Luís', 'Luís Vaz de Camões','luiscamoes@ua.pt',toTimestamp(now()));
+INSERT INTO User(username, name, email, platform_time_stamp) VALUES ('Cristiano', 'Cristiano Ronaldo','ronaldo@ua.pt',toTimestamp(now()));
+INSERT INTO User(username, name, email, platform_time_stamp) VALUES ('Camilo', 'Camilo Castelo Branco','camilocastelobranco@ua.pt',toTimestamp(now()));
+INSERT INTO User(username, name, email, platform_time_stamp) VALUES ('Fernão', 'Fernão Magalhães','fernao@ua.pt',toTimestamp(now()));
+INSERT INTO User(username, name, email, platform_time_stamp) VALUES ('Vasco', 'Vasco da Gama','vascodagama@ua.pt',toTimestamp(now()));
+INSERT INTO User(username, name, email, platform_time_stamp) VALUES ('Teófilo ', 'Teófilo de Braga','teofilodebraga@ua.pt',toTimestamp(now()));
+INSERT INTO User(username, name, email, platform_time_stamp) VALUES ('Almeida', 'Almeida Garret','almeirdagarret@ua.pt',toTimestamp(now()));
+INSERT INTO User(username, name, email, platform_time_stamp) VALUES ('Antero', 'Antero de Quental','antero@ua.pt',toTimestamp(now()));
+INSERT INTO User(username, name, email, platform_time_stamp) VALUES ('Humberto', 'Humberto Delgado','humbertodelgado@ua.pt',toTimestamp(now()));
+INSERT INTO User(username, name, email, platform_time_stamp) VALUES ('Fernando', 'Fernando Pessoa','fernandopessoa@ua.pt',toTimestamp(now()));
+INSERT INTO User(username, name, email, platform_time_stamp) VALUES ('Miguel', 'Miguel Torga','migueltorga@ua.pt',toTimestamp(now()));
+
+INSERT INTO Video(id, username, upload_time_stamp, description, etiquetas, video_name) VALUES ( 1, 'Catarina',toTimestamp(now()), 'Mozart: Classical Music Masterpieces', {'Mozart', 'Music'}, 'The Best of Mozart');
+INSERT INTO Video(id, username, upload_time_stamp, description, etiquetas, video_name) VALUES ( 2, 'Cristovao',toTimestamp(now()), 'Chopin: Classical Piano Masterpieces', {'Chopin', 'Music'}, 'Chopin - Relaxing Classical Piano');
+INSERT INTO Video(id, username, upload_time_stamp, description, etiquetas, video_name) VALUES ( 3, 'Eça',toTimestamp(now()), 'National Anthem of Portugal - "A Portuguesa" (Song of the Portuguese)', {'Portugal','Anthem', 'Music'}, 'Portuguese National Anthem - "A Portuguesa" ');
+INSERT INTO Video(id, username, upload_time_stamp, description, etiquetas, video_name) VALUES ( 4, 'Amália',toTimestamp(now()), 'The day whole of Portugal will never Forget..', {'Portugal', 'Football'}, 'UEFA Euro 2016 Final Extended Highlights HD');
+INSERT INTO Video(id, username, upload_time_stamp, description, etiquetas, video_name) VALUES ( 5, 'Pedro',toTimestamp(now()), 'The Art of War is an ancient guide on military strategy. Written by Sun Tzu a Chinese general and philosopher in the 5th Century B.C.', {'Sun Tzu', 'Book'}, 'The Art of War by Sun Tzu: Entire Unabridged');
+INSERT INTO Video(id, username, upload_time_stamp, description, etiquetas, video_name) VALUES ( 6, 'Luís',toTimestamp(now()), 'The Art of Seduction by Robert Greene', {'Robert Greene', 'Book'}, 'The Art of Seduction by Robert Greene');
+INSERT INTO Video(id, username, upload_time_stamp, description, etiquetas, video_name) VALUES ( 7, 'Cristiano',toTimestamp(now()), 'Cristiano Ronaldo: 50 best goals ever', {'Cristiano', 'Portugal', 'Football'}, 'Cristiano Ronaldo 50 Legendary Goals Impossible To Forget');
+INSERT INTO Video(id, username, upload_time_stamp, description, etiquetas, video_name) VALUES ( 8, 'Camilo',toTimestamp(now()), 'Video is compiled from all the funny by cute cats of worldwide', {'Cats', 'Animals'}, 'Funny Cats Compilation (Most Popular) Part 1');
+INSERT INTO Video(id, username, upload_time_stamp, description, etiquetas, video_name) VALUES ( 9, 'Fernão',toTimestamp(now()), 'Dogs and puppies are the best! They're so funny and cute, it's hard not to love them.', {'Dogs', 'Animals'}, 'Ultimate Funny Dogs Compilation');
+INSERT INTO Video(id, username, upload_time_stamp, description, etiquetas, video_name) VALUES ( 10, 'Vasco',toTimestamp(now()), 'Moments of Animal Genius That Will Amaze You', {'Animals'}, 'Moments of Animal Genius That Will Amaze You');
+INSERT INTO Video(id, username, upload_time_stamp, description, etiquetas, video_name) VALUES ( 11, 'Teófilo',toTimestamp(now()), 'Claude Debussy (22 August 1862 – 25 March 1918) was a French composer. ', {'Debussy', 'Music'}, 'The Best of Debussy');
+INSERT INTO Video(id, username, upload_time_stamp, description, etiquetas, video_name) VALUES ( 12, 'Almeida',toTimestamp(now()), 'Director Todd Phillips “Joker” centers around the iconic arch nemesis and is an original, standalone fictional story not seen before on the big screen.', {'Joker', 'Movies'}, 'JOKER - Final Trailer - Now Playing In Theaters');
+INSERT INTO Video(id, username, upload_time_stamp, description, etiquetas, video_name) VALUES ( 13, 'Antero',toTimestamp(now()), 'Grab the popcorn and dim the lights for the best movies of all time.', {'Best', 'Movies'}, 'Top 20 Greatest Movies Of All Time');
+INSERT INTO Video(id, username, upload_time_stamp, description, etiquetas, video_name) VALUES ( 14, 'Humberto',toTimestamp(now()), 'These guys rock! For this list, we’ll be looking at the very best lead vocalists in rock history.', {'Rock', 'Music'}, 'Top 20 Greatest Rock Frontmen of All Time');
+INSERT INTO Video(id, username, upload_time_stamp, description, etiquetas, video_name) VALUES ( 15, 'Fernando',toTimestamp(now()), 'Fernando Pessoa: Tudo o que precisas de saber!', {'Pessoa', 'Book'}, 'Fernando Pessoa: Tudo o que precisas de saber!');
+INSERT INTO Video(id, username, upload_time_stamp, description, etiquetas, video_name) VALUES ( 16, 'Miguel',toTimestamp(now()), 'There’s a reason that movie scene looked so real. For this list, we’ll be looking at real on-set accidents involving actors that were intentionally left in the film.', {'Actors', 'Movies'}, 'Top 20 Actor Injuries You ACTUALLY See in the Movie');
+
+INSERT INTO Comentario_User(id, username, comment, comment_time_stamp, video_id) VALUES (1, 'Catarina', 'Adoro Mozart!!', toTimestamp(now()), 1);
+INSERT INTO Comentario_User(id, username, comment, comment_time_stamp, video_id) VALUES (2, 'Cristovao', 'Adoro Chopin!!', toTimestamp(now()), 2);
+INSERT INTO Comentario_User(id, username, comment, comment_time_stamp, video_id) VALUES (3, 'Eça', 'Heróis do MARRRR!!', toTimestamp(now()), 3);
+INSERT INTO Comentario_User(id, username, comment, comment_time_stamp, video_id) VALUES (4, 'Amália', 'CAMPEÕES, RUMO AO MUNDIAL 2022!', toTimestamp(now()), 4);
+INSERT INTO Comentario_User(id, username, comment, comment_time_stamp, video_id) VALUES (5, 'Pedro', 'One of the best books of all time.', toTimestamp(now()), 5);
+INSERT INTO Comentario_User(id, username, comment, comment_time_stamp, video_id) VALUES (6, 'Luís', 'Loved every page of this books!', toTimestamp(now()), 6);
+INSERT INTO Comentario_User(id, username, comment, comment_time_stamp, video_id) VALUES (7, 'Cristiano', 'Sou Lindo <3', toTimestamp(now()), 7);
+INSERT INTO Comentario_User(id, username, comment, comment_time_stamp, video_id) VALUES (8, 'Camilo', 'Love cats <3', toTimestamp(now()), 8);
+INSERT INTO Comentario_User(id, username, comment, comment_time_stamp, video_id) VALUES (9, 'Fernão', 'Doggs are funny!!', toTimestamp(now()), 9);
+INSERT INTO Comentario_User(id, username, comment, comment_time_stamp, video_id) VALUES (10, 'Vasco', 'E ainda dizem que os animais são burros....', toTimestamp(now()), 10);
+INSERT INTO Comentario_User(id, username, comment, comment_time_stamp, video_id) VALUES (11, 'Teófilo', 'Adoro Debussy', toTimestamp(now()), 11);
+INSERT INTO Comentario_User(id, username, comment, comment_time_stamp, video_id) VALUES (12, 'Almeida', 'Why so serious?', toTimestamp(now()), 12);
+INSERT INTO Comentario_User(id, username, comment, comment_time_stamp, video_id) VALUES (13, 'Antero', 'Pulp Fiction is my fave', toTimestamp(now()), 13);
+INSERT INTO Comentario_User(id, username, comment, comment_time_stamp, video_id) VALUES (14, 'Humberto', 'Freddie Mercury controlling the crowd at Live Aid always gives me chills', toTimestamp(now()), 14);
+INSERT INTO Comentario_User(id, username, comment, comment_time_stamp, video_id) VALUES (15, 'Fernando', 'Tenho em mim todos os sonhos do mundo.', toTimestamp(now()), 15);
+INSERT INTO Comentario_User(id, username, comment, comment_time_stamp, video_id) VALUES (16, 'Miguel', 'Who else is surprised they did not include buzz lightyear arm being torn off in toy story 1', toTimestamp(now()), 16);
+
+INSERT INTO Comentario_Video(id, video_id, comment, comment_time_stamp) VALUES (1,1, 'Adoro Mozart!!', toTimestamp(now()));
+INSERT INTO Comentario_Video(id, video_id, comment, comment_time_stamp) VALUES (2,2, 'Adoro Chopin!!', toTimestamp(now()));
+INSERT INTO Comentario_Video(id, video_id, comment, comment_time_stamp) VALUES (3,3, 'Heróis do MARRRR!!', toTimestamp(now()));
+INSERT INTO Comentario_Video(id, video_id, comment, comment_time_stamp) VALUES (4,4, 'CAMPEÕES, RUMO AO MUNDIAL 2022!', toTimestamp(now()));
+INSERT INTO Comentario_Video(id, video_id, comment, comment_time_stamp) VALUES (5,5, 'One of the best books of all time.', toTimestamp(now()));
+INSERT INTO Comentario_Video(id, video_id, comment, comment_time_stamp) VALUES (6,6, 'Loved every page of this books!', toTimestamp(now()));
+INSERT INTO Comentario_Video(id, video_id, comment, comment_time_stamp) VALUES (7,7, 'Sou Lindo <3', toTimestamp(now()));
+INSERT INTO Comentario_Video(id, video_id, comment, comment_time_stamp) VALUES (8,1, 'I wonder if Mozart ever thought people would still be listening to his music in the year 2021.', toTimestamp(now()));
+INSERT INTO Comentario_Video(id, video_id, comment, comment_time_stamp) VALUES (9,9, 'Doggs are funny!!', toTimestamp(now()));
+INSERT INTO Comentario_Video(id, video_id, comment, comment_time_stamp) VALUES (10,7, 'CR7 és o maior!', toTimestamp(now()));
+INSERT INTO Comentario_Video(id, video_id, comment, comment_time_stamp) VALUES (11,14, 'I know they are not everyone’s cup of tea but Matt Bellamy from Muse deserves a mention. Incredible guitarist and stunning live vocal.', toTimestamp(now()));
+INSERT INTO Comentario_Video(id, video_id, comment, comment_time_stamp) VALUES (12,12, 'Why so serious?', toTimestamp(now()));
+INSERT INTO Comentario_Video(id, video_id, comment, comment_time_stamp) VALUES (13,14, 'So glad Chester made the list.', toTimestamp(now()));
+INSERT INTO Comentario_Video(id, video_id, comment, comment_time_stamp) VALUES (14,14, 'Freddie Mercury controlling the crowd at Live Aid always gives me chills', toTimestamp(now()));
+INSERT INTO Comentario_Video(id, video_id, comment, comment_time_stamp) VALUES (15,1,'I cant imagine how his brain is processed this music with this much perfection brilliant ', toTimestamp(now()));
+INSERT INTO Comentario_Video(id, video_id, comment, comment_time_stamp) VALUES (16,1, 'This is real music! Only 1700s kids will remember!', toTimestamp(now()));
+
+INSERT INTO Video_followers(username, video_id) VALUES ('Catarina',1);
+INSERT INTO Video_followers(username, video_id) VALUES ('Cristovao',2);
+INSERT INTO Video_followers(username, video_id) VALUES ('Eça',3);
+INSERT INTO Video_followers(username, video_id) VALUES ('Amália',4);
+INSERT INTO Video_followers(username, video_id) VALUES ('Pedro',5);
+INSERT INTO Video_followers(username, video_id) VALUES ('Luís',6);
+INSERT INTO Video_followers(username, video_id) VALUES ('Cristiano',7);
+INSERT INTO Video_followers(username, video_id) VALUES ('Camilo',8);
+INSERT INTO Video_followers(username, video_id) VALUES ('Fernão',9);
+INSERT INTO Video_followers(username, video_id) VALUES ('Vasco',10);
+INSERT INTO Video_followers(username, video_id) VALUES ('Teófilo',11);
+INSERT INTO Video_followers(username, video_id) VALUES ('Almeida',12);
+INSERT INTO Video_followers(username, video_id) VALUES ('Antero',13);
+INSERT INTO Video_followers(username, video_id) VALUES ('Humberto',14);
+INSERT INTO Video_followers(username, video_id) VALUES ('Fernando',15);
+INSERT INTO Video_followers(username, video_id) VALUES ('Miguel',16);
+
+INSERT INTO Eventos(video_id, username, action, registo_temporal) VALUES (1, 'Catarina', 'play', toTimestamp(now()));
+INSERT INTO Eventos(video_id, username, action, registo_temporal) VALUES (2, 'Cristovao', 'pause', toTimestamp(now()));
+INSERT INTO Eventos(video_id, username, action, registo_temporal) VALUES (3, 'Eça', 'stop', toTimestamp(now()));
+INSERT INTO Eventos(video_id, username, action, registo_temporal) VALUES (4, 'Amália', 'play', toTimestamp(now()));
+INSERT INTO Eventos(video_id, username, action, registo_temporal) VALUES (5, 'Pedro', 'pause', toTimestamp(now()));
+INSERT INTO Eventos(video_id, username, action, registo_temporal) VALUES (6, 'Luís', 'stop', toTimestamp(now()));
+INSERT INTO Eventos(video_id, username, action, registo_temporal) VALUES (7, 'Cristiano', 'stop', toTimestamp(now()));
+INSERT INTO Eventos(video_id, username, action, registo_temporal) VALUES (8, 'Camilo', 'stop', toTimestamp(now()));
+INSERT INTO Eventos(video_id, username, action, registo_temporal) VALUES (9, 'Fernão', 'pause', toTimestamp(now()));
+INSERT INTO Eventos(video_id, username, action, registo_temporal) VALUES (10, 'Vasco', 'pause', toTimestamp(now()));
+INSERT INTO Eventos(video_id, username, action, registo_temporal) VALUES (11, 'Teófilo', 'play', toTimestamp(now()));
+INSERT INTO Eventos(video_id, username, action, registo_temporal) VALUES (12, 'Almeida', 'play', toTimestamp(now()));
+INSERT INTO Eventos(video_id, username, action, registo_temporal) VALUES (13, 'Antero', 'pause', toTimestamp(now()));
+INSERT INTO Eventos(video_id, username, action, registo_temporal) VALUES (14, 'HUmberto', 'pause', toTimestamp(now()));
+INSERT INTO Eventos(video_id, username, action, registo_temporal) VALUES (15, 'Fernando', 'play', toTimestamp(now()));
+INSERT INTO Eventos(video_id, username, action, registo_temporal) VALUES (16, 'Miguel', 'play', toTimestamp(now()));
+
+INSERT INTO Rating(id, video_id, rating) VALUES (1, 1, 5);
+INSERT INTO Rating(id, video_id, rating) VALUES (2, 2, 4);
+INSERT INTO Rating(id, video_id, rating) VALUES (3, 3, 3);
+INSERT INTO Rating(id, video_id, rating) VALUES (4, 4, 5);
+INSERT INTO Rating(id, video_id, rating) VALUES (5, 5, 1);
+INSERT INTO Rating(id, video_id, rating) VALUES (6, 6, 2);
+INSERT INTO Rating(id, video_id, rating) VALUES (7, 7, 5);
+INSERT INTO Rating(id, video_id, rating) VALUES (8, 8, 4);
+INSERT INTO Rating(id, video_id, rating) VALUES (9, 9, 4);
+INSERT INTO Rating(id, video_id, rating) VALUES (10, 10, 3);
+INSERT INTO Rating(id, video_id, rating) VALUES (11, 11, 2);
+INSERT INTO Rating(id, video_id, rating) VALUES (12, 12, 2);
+INSERT INTO Rating(id, video_id, rating) VALUES (13, 13, 1);
+INSERT INTO Rating(id, video_id, rating) VALUES (14, 14, 1);
+INSERT INTO Rating(id, video_id, rating) VALUES (15, 15, 1);
+INSERT INTO Rating(id, video_id, rating) VALUES (16, 16, 5);
+
+
+
+
+
+
+
+
+
+
+
+

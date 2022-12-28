@@ -1,0 +1,102 @@
+A keyspace in Cassandra is a namespace that defines data replication on nodes.
+
+CREATE KEYSPACE cbd3_2 WITH replication = {'class' : 'SimpleStrategy', 'replication_factor' : 3};
+
+USE cbd3_2;
+		    
+
+CREATE TABLE User(
+              username text,
+              name text,
+              email text,
+              platform_time_stamp timestamp,
+              PRIMARY KEY (username, platform_time_stamp)
+              )WITH CLUSTERING ORDER BY (platform_time_stamp DESC);
+
+-- 7. Permitir a pesquisa de todos os vídeos de determinado autor;		    
+CREATE TABLE Video(
+		id int,
+          	username text,
+		video_name text,
+		description text,
+		upload_time_stamp timestamp,
+		etiquetas set<text>,
+		PRIMARY KEY(id,username,upload_time_stamp)
+		)WITH CLUSTERING ORDER BY (username ASC, upload_time_stamp DESC);
+		
+-- 8. Permitir a pesquisa de comentários por utilizador, ordenado inversamente pela data;
+-- 9. Permitir a pesquisa de comentários por vídeos, ordenado inversamente pela data;
+
+CREATE TABLE Comentario_Video (
+	  id int,
+          video_id int,
+          comment text,
+          comment_time_stamp timestamp,
+          PRIMARY KEY( video_id, comment_time_stamp, id)
+          )WITH CLUSTERING ORDER BY (comment_time_stamp DESC);
+
+
+CREATE TABLE Comentario_User(
+	  id int,
+	  username text,
+	  video_id int,
+          comment text,
+          comment_time_stamp timestamp,
+          PRIMARY KEY( username, comment_time_stamp, id)
+          )WITH CLUSTERING ORDER BY (comment_time_stamp DESC);
+
+
+CREATE TABLE Video_followers( username text, 
+			       video_id int,
+			       PRIMARY KEY(video_id, username) );
+
+
+CREATE TABLE Eventos ( video_id int,
+			username text,
+			action text,
+			registo_temporal timestamp,
+			PRIMARY KEY(video_id, username));
+			
+
+CREATE TABLE Rating(
+		    id int,
+		    video_id int,
+		    rating int,
+		    PRIMARY KEY ( id, video_id));
+
+-- 10. Permitir a pesquisa do rating médio de um vídeo e quantas vezes foi votado;
+
+SELECT avg(rating) as avg_rating, count(rating) as count_rating, video_id FROM Rating WHERE video_id = 1 ALLOW FILTERING;
+
+ avg_rating | count_rating | video_id
+------------+--------------+----------
+          5 |            1 |        1
+
+(1 rows)
+
+
+		  
+
+		    
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+
+
+
+
+
+
+
+

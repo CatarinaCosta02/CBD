@@ -1,0 +1,73 @@
+CREATE KEYSPACE cbd3_4 WITH replication = {'class' : 'SimpleStrategy', 'replication_factor' : 3};
+USE cbd3_4;
+
+-- base de dados de uma Pet_shop
+
+Shop prices
+shop
+Owner
+Pet_owner
+Animal
+categoria do animal
+
+CREATE TABLE Owner(
+	id int,
+	username text,
+	name text,
+	email text,
+	phone text,
+	PRIMARY KEY(id, username)
+	);
+	
+	
+CREATE TABLE Pet(
+	id int,
+	name text,
+	specie_id int,
+	birth_date timestamp,
+	PRIMARY KEY(id, birth_date)
+	)WITH CLUSTERING ORDER BY (birth_date DESC);
+	
+CREATE TABLE Shop(
+	id int,
+	name text,
+	email text,
+	phone text,
+	prices_id int,
+	PRIMARY KEY(id));
+	
+CREATE TABLE PetOwner(
+	id int,
+	pet_id int,
+	owner_id int,
+	name text,
+	pet_name text,
+	PRIMARY KEY(id)
+	);
+	
+CREATE TABLE Species(
+	id int,
+	pet_id int,
+	pet_name text,
+	specie_pet set<text>,
+	PRIMARY KEY(id));
+	
+CREATE TABLE Prices(
+	id int,
+	specie_id int,
+	shop_id int,
+	price text,
+	product set<text>,
+	shop_name text,
+	PRIMARY KEY(id, price)
+	)WITH CLUSTERING ORDER BY (price ASC);
+
+
+
+
+	
+	
+	
+
+
+

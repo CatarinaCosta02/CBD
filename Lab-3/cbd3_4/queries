@@ -1,0 +1,102 @@
+1) 5 owner;
+select * from Owner LIMIT 5;
+
+ id | username    | email             | name            | phone
+----+-------------+-------------------+-----------------+-----------
+  5 |   Descartes |   descartes@ua.pt | Descartes Jorge | 123456789
+ 10 |   Sebastião |       sebas@ua.pt |   Dom Sebastiao | 961789789
+  1 | Aristóteles | aristoteles@ua.pt |     Aristóteles | 961444444
+  8 |    Sócrates |    socrates@ua.pt |        Sócrates | 961777777
+  2 |      Platão |      platao@ua.pt |          Platão | 961555555
+
+  
+2)
+
+select * from PetOwner WHERE id = 5;
+
+ id | name | owner_id | pet_id | pet_name
+----+------+----------+--------+----------
+  5 | Kant |        7 |      5 | Espinela
+
+
+  
+3) 
+
+select * from PetOwner WHERE owner_id = 5;
+
+id | name      | owner_id | pet_id | pet_name
+----+-----------+----------+--------+----------
+ 10 | Descartes |        5 |     10 |  Granada
+  9 | Descartes |        5 |      9 |    Ágata
+ 12 | Descartes |        5 |     12 |  Quartzo
+
+4)
+
+select * from Species WHERE pet_name = 'Diamante';
+
+ id | pet_id | pet_name | specie_pet
+----+--------+----------+-----------------------------
+  2 |      2 | Diamante | {'Alaskan Malamute', 'Dog'}
+
+5)
+
+select * from Prices WHERE shop_name = 'Paws Up' LIMIT 3;
+
+ id | price | product                   | shop_id | shop_name | specie_id
+----+-------+---------------------------+---------+-----------+-----------
+  5 |  5.20 |  {'5.20', 'Ração de Cão'} |       4 |   Paws Up |         8
+ 10 |  8.20 |       {'8.20', 'Aquario'} |       1 |   Paws Up |         3
+  2 |  3.20 | {'3.20', 'Areia de gato'} |       4 |   Paws Up |         1
+
+
+  
+6)
+
+select * from Species WHERE specie_pet CONTAINS 'Cat';
+
+ id | pet_id | pet_name | specie_pet
+----+--------+----------+--------------------------
+  5 |      5 | Espinela |  {'Cat', 'Russian Blue'}
+ 11 |     11 |  Citrino |        {'Cat', 'Siames'}
+  1 |      1 |  Jadeite | {'American Curl', 'Cat'}
+  4 |      4 |    Opala |       {'Cat', 'Persian'}
+
+7)
+
+select * from Shop WHERE localizacao['PDL'] = 'R. da Juventude, 9500-211 Ponta Delgada'ALLOW FILTERING;
+
+ id | name         | informacoes                       | localizacao                                        | prices_id
+----+--------------+-----------------------------------+----------------------------------------------------+-----------
+  5 |     Pet Shop | ['thestarpey@ua.pt', '961111111'] | {'PDL': 'R. da Juventude, 9500-211 Ponta Delgada'} |         5
+  1 | The Star Pet | ['thestarpey@ua.pt', '961111111'] | {'PDL': 'R. da Juventude, 9500-211 Ponta Delgada'} |         1
+
+
+
+8)
+
+ select * from Prices WHERE price = '3.20' AND id = 8;
+
+ id | price | product             | shop_id | shop_name | specie_id
+----+-------+---------------------+---------+-----------+-----------
+  8 |  3.20 | {'3.20', 'Gaiolas'} |       3 | Pet Haven |         6
+
+9)
+
+select * from Shop WHERE name = 'Pet Shop';
+
+ id | name     | informacoes                       | localizacao                                        | prices_id
+----+----------+-----------------------------------+----------------------------------------------------+-----------
+  5 | Pet Shop | ['thestarpey@ua.pt', '961111111'] | {'PDL': 'R. da Juventude, 9500-211 Ponta Delgada'} |         5
+
+
+10)
+
+select * from Shop WHERE informacoes CONTAINS 'thestarpey@ua.pt';
+
+ id | name         | informacoes                       | localizacao                                        | prices_id
+----+--------------+-----------------------------------+----------------------------------------------------+-----------
+  5 |     Pet Shop | ['thestarpey@ua.pt', '961111111'] | {'PDL': 'R. da Juventude, 9500-211 Ponta Delgada'} |         5
+  1 | The Star Pet | ['thestarpey@ua.pt', '961111111'] | {'PDL': 'R. da Juventude, 9500-211 Ponta Delgada'} |         1
+
+
+

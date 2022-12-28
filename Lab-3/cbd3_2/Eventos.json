@@ -1,0 +1,18 @@
+     {"video_id": 5, "username": "Pedro", "action": "pause", "registo_temporal": "2022-12-03 17:13:59.026Z"}
+    {"video_id": 10, "username": "Vasco", "action": "pause", "registo_temporal": "2022-12-03 17:13:59.044Z"}
+    {"video_id": 16, "username": "Miguel", "action": "play", "registo_temporal": "2022-12-03 17:13:59.955Z"}
+   {"video_id": 13, "username": "Antero", "action": "pause", "registo_temporal": "2022-12-03 17:13:59.056Z"}
+   {"video_id": 11, "username": "Teófilo", "action": "play", "registo_temporal": "2022-12-03 17:13:59.048Z"}
+   {"video_id": 1, "username": "Catarina", "action": "play", "registo_temporal": "2022-12-03 17:13:59.010Z"}
+     {"video_id": 8, "username": "Camilo", "action": "stop", "registo_temporal": "2022-12-03 17:13:59.038Z"}
+ {"video_id": 2, "username": "Cristovao", "action": "pause", "registo_temporal": "2022-12-03 17:13:59.015Z"}
+     {"video_id": 4, "username": "Amália", "action": "play", "registo_temporal": "2022-12-03 17:13:59.023Z"}
+  {"video_id": 15, "username": "Fernando", "action": "play", "registo_temporal": "2022-12-03 17:13:59.063Z"}
+  {"video_id": 7, "username": "Cristiano", "action": "stop", "registo_temporal": "2022-12-03 17:13:59.034Z"}
+       {"video_id": 6, "username": "Luís", "action": "stop", "registo_temporal": "2022-12-03 17:13:59.030Z"}
+    {"video_id": 9, "username": "Fernão", "action": "pause", "registo_temporal": "2022-12-03 17:13:59.041Z"}
+ {"video_id": 14, "username": "HUmberto", "action": "pause", "registo_temporal": "2022-12-03 17:13:59.060Z"}
+   {"video_id": 12, "username": "Almeida", "action": "play", "registo_temporal": "2022-12-03 17:13:59.053Z"}
+        {"video_id": 3, "username": "Eça", "action": "stop", "registo_temporal": "2022-12-03 17:13:59.019Z"}
+
+(16 rows)

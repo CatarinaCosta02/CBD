@@ -1,0 +1,13 @@
+    {"id": 5, "username": "Descartes", "email": "descartes@ua.pt", "name": "Descartes Jorge", "phone": "123456789"}
+         {"id": 10, "username": "Sebastião", "email": "sebas@ua.pt", "name": "Dom Sebastiao", "phone": "961789789"}
+    {"id": 1, "username": "Aristóteles", "email": "aristoteles@ua.pt", "name": "Aristóteles", "phone": "961444444"}
+             {"id": 8, "username": "Sócrates", "email": "socrates@ua.pt", "name": "Sócrates", "phone": "961777777"}
+                   {"id": 2, "username": "Platão", "email": "platao@ua.pt", "name": "Platão", "phone": "961555555"}
+ {"id": 4, "username": "Wittgenstein", "email": "Wittgenstein@ua.pt", "name": "Wittgenstein", "phone": "961222222"}
+                         {"id": 7, "username": "Kant", "email": "Kant@ua.pt", "name": "Kant", "phone": "961666666"}
+                      {"id": 6, "username": "Hegel", "email": "hegel@ua.pt", "name": "Hegel", "phone": "961000000"}
+                {"id": 9, "username": "Mário", "email": "mario@ua.pt", "name": "Mário Sousa", "phone": "961741852"}
+           {"id": 12, "username": "Osvaldo", "email": "sousa@ua.pt", "name": "Osvaldo Sousa", "phone": "961123123"}
+                {"id": 3, "username": "Nietzsche", "email": "nie@ua.pt", "name": "Nietzsche", "phone": "961333333"}
+
+(11 rows)

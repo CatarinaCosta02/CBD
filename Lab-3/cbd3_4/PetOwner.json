@@ -1,0 +1,13 @@
+       {"id": 5, "name": "Kant", "owner_id": 7, "pet_id": 5, "pet_name": "Espinela"}
+ {"id": 10, "name": "Descartes", "owner_id": 5, "pet_id": 10, "pet_name": "Granada"}
+ {"id": 1, "name": "Aristóteles", "owner_id": 1, "pet_id": 1, "pet_name": "Jadeite"}
+    {"id": 8, "name": "Sócrates", "owner_id": 8, "pet_id": 8, "pet_name": "Cristal"}
+     {"id": 2, "name": "Platão", "owner_id": 2, "pet_id": 2, "pet_name": "Diamante"}
+     {"id": 4, "name": "Nietzsche", "owner_id": 3, "pet_id": 4, "pet_name": "Opala"}
+          {"id": 7, "name": "Hegel", "owner_id": 6, "pet_id": 7, "pet_name": "Rubi"}
+ {"id": 6, "name": "Wittgenstein", "owner_id": 4, "pet_id": 6, "pet_name": "Safira"}
+     {"id": 9, "name": "Descartes", "owner_id": 5, "pet_id": 9, "pet_name": "Ágata"}
+ {"id": 12, "name": "Descartes", "owner_id": 5, "pet_id": 12, "pet_name": "Quartzo"}
+      {"id": 3, "name": "Kant", "owner_id": 2, "pet_id": 3, "pet_name": "Esmeralda"}
+
+(11 rows)

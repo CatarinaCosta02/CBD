@@ -1,0 +1,232 @@
+------------------------------------------------------------------------------------------ UPDATES ----------------------------------------------------------------------------------------------------
+
+select * from Owner;
+
+ id | username     | email              | name            | phone
+----+--------------+--------------------+-----------------+-----------
+  5 |    Descartes |    descartes@ua.pt |      Descartes  | 961111111
+ 10 |    Sebastião |        sebas@ua.pt |   Dom Sebastiao | 961789789
+ 11 |           Ze |           ze@ua.pt |        Ze Maria | 961456456
+  1 |  Aristóteles |  aristoteles@ua.pt |     Aristóteles | 961444444
+  8 |     Sócrates |     socrates@ua.pt |        Sócrates | 961777777
+  2 |       Platão |       platao@ua.pt |          Platão | 961555555
+  4 | Wittgenstein | Wittgenstein@ua.pt |    Wittgenstein | 961222222
+  7 |         Kant |         Kant@ua.pt |            Kant | 961666666
+  6 |        Hegel |        hegel@ua.pt |           Hegel | 961000000
+  9 |        Mário |        mario@ua.pt |     Mário Sousa | 961741852
+ 12 |      Osvaldo |        sousa@ua.pt |   Osvaldo Sousa | 961123123
+  3 |    Nietzsche |          nie@ua.pt |       Nietzsche | 961333333
+  
+1) UPDATE Owner SET name = 'Descartes Jorge' WHERE id = 5 and username = 'Descartes';
+
+ id | username     | email              | name            | phone
+----+--------------+--------------------+-----------------+-----------
+  5 |    Descartes |    descartes@ua.pt | Descartes Jorge | 961111111
+ 10 |    Sebastião |        sebas@ua.pt |   Dom Sebastiao | 961789789
+ 11 |           Ze |           ze@ua.pt |        Ze Maria | 961456456
+  1 |  Aristóteles |  aristoteles@ua.pt |     Aristóteles | 961444444
+  8 |     Sócrates |     socrates@ua.pt |        Sócrates | 961777777
+  2 |       Platão |       platao@ua.pt |          Platão | 961555555
+  4 | Wittgenstein | Wittgenstein@ua.pt |    Wittgenstein | 961222222
+  7 |         Kant |         Kant@ua.pt |            Kant | 961666666
+  6 |        Hegel |        hegel@ua.pt |           Hegel | 961000000
+  9 |        Mário |        mario@ua.pt |     Mário Sousa | 961741852
+ 12 |      Osvaldo |        sousa@ua.pt |   Osvaldo Sousa | 961123123
+  3 |    Nietzsche |          nie@ua.pt |       Nietzsche | 961333333
+  
+2) UPDATE Owner SET phone = '123456789' WHERE id = 5 and username = 'Descartes';
+
+ id | username     | email              | name            | phone
+----+--------------+--------------------+-----------------+-----------
+  5 |    Descartes |    descartes@ua.pt | Descartes Jorge | 123456789
+ 10 |    Sebastião |        sebas@ua.pt |   Dom Sebastiao | 961789789
+ 11 |           Ze |           ze@ua.pt |        Ze Maria | 961456456
+  1 |  Aristóteles |  aristoteles@ua.pt |     Aristóteles | 961444444
+  8 |     Sócrates |     socrates@ua.pt |        Sócrates | 961777777
+  2 |       Platão |       platao@ua.pt |          Platão | 961555555
+  4 | Wittgenstein | Wittgenstein@ua.pt |    Wittgenstein | 961222222
+  7 |         Kant |         Kant@ua.pt |            Kant | 961666666
+  6 |        Hegel |        hegel@ua.pt |           Hegel | 961000000
+  9 |        Mário |        mario@ua.pt |     Mário Sousa | 961741852
+ 12 |      Osvaldo |        sousa@ua.pt |   Osvaldo Sousa | 961123123
+  3 |    Nietzsche |          nie@ua.pt |       Nietzsche | 961333333
+  
+select * from Pet;
+
+ id | birth_date                      | name      | specie_id
+----+---------------------------------+-----------+-----------
+  5 | 2022-12-05 15:11:37.433000+0000 |  Espinela |         5
+ 10 | 2022-12-05 15:11:38.478000+0000 |   Granada |        10
+ 11 | 2022-12-05 17:44:46.985000+0000 |   Citrino |        11
+  1 | 2022-12-05 15:11:37.412000+0000 |   Jadeite |         1
+  8 | 2022-12-05 15:11:37.446000+0000 |   Cristal |         8
+  2 | 2022-12-05 15:11:37.419000+0000 | Diamante  |         2
+  4 | 2022-12-05 15:11:37.428000+0000 |     Opala |         4
+  7 | 2022-12-05 15:11:37.442000+0000 |      Rubi |         7
+  6 | 2022-12-05 15:11:37.438000+0000 |    Safira |         6
+  9 | 2022-12-05 15:11:37.451000+0000 |     Ágata |         9
+ 12 | 2022-12-05 17:44:48.310000+0000 |   Quartzo |        12
+  3 | 2022-12-05 15:11:37.424000+0000 | Esmeralda |         3
+
+3) UPDATE Pet SET name = 'Diamante Rosa' WHERE id = 11 and birth_date = '2022-12-05 17:44:46.985000+0000';
+
+ id | birth_date                      | name          | specie_id
+----+---------------------------------+---------------+-----------
+  5 | 2022-12-05 15:11:37.433000+0000 |      Espinela |         5
+ 10 | 2022-12-05 15:11:38.478000+0000 |       Granada |        10
+ 11 | 2022-12-05 17:44:46.985000+0000 | Diamante Rosa |        11
+  1 | 2022-12-05 15:11:37.412000+0000 |       Jadeite |         1
+  8 | 2022-12-05 15:11:37.446000+0000 |       Cristal |         8
+  2 | 2022-12-05 15:11:37.419000+0000 |     Diamante  |         2
+  4 | 2022-12-05 15:11:37.428000+0000 |         Opala |         4
+  7 | 2022-12-05 15:11:37.442000+0000 |          Rubi |         7
+  6 | 2022-12-05 15:11:37.438000+0000 |        Safira |         6
+  9 | 2022-12-05 15:11:37.451000+0000 |         Ágata |         9
+ 12 | 2022-12-05 17:44:48.310000+0000 |       Quartzo |        12
+  3 | 2022-12-05 15:11:37.424000+0000 |     Esmeralda |         3
+  
+ 
+select * from PetOwner;
+
+ id | name         | owner_id | pet_id | pet_name
+----+--------------+----------+--------+-----------
+  5 |         Kant |        7 |      5 |  Espinela
+ 10 |    Descartes |        5 |     10 |   Granada
+ 11 |    Descartes |        5 |     11 |   Citrino
+  1 |  Aristóteles |        1 |      1 |   Jadeite
+  8 |     Sócrates |        8 |      8 |   Cristal
+  2 |       Platão |        2 |      2 |  Diamante
+  4 |    Nietzsche |        3 |      4 |     Opala
+  7 |        Hegel |        6 |      7 |      Rubi
+  6 | Wittgenstein |        4 |      6 |    Safira
+  9 |    Descartes |        5 |      9 |     Ágata
+ 12 |    Descartes |        5 |     12 |   Quartzo
+  3 |       Platão |        2 |      3 | Esmeralda
+  
+4) UPDATE PetOwner SET pet_name = 'Diamante Rosa' WHERE id = 11;
+
+ id | name         | owner_id | pet_id | pet_name
+----+--------------+----------+--------+---------------
+  5 |         Kant |        7 |      5 |      Espinela
+ 10 |    Descartes |        5 |     10 |       Granada
+ 11 |    Descartes |        5 |     11 | Diamante Rosa
+  1 |  Aristóteles |        1 |      1 |       Jadeite
+  8 |     Sócrates |        8 |      8 |       Cristal
+  2 |       Platão |        2 |      2 |      Diamante
+  4 |    Nietzsche |        3 |      4 |         Opala
+  7 |        Hegel |        6 |      7 |          Rubi
+  6 | Wittgenstein |        4 |      6 |        Safira
+  9 |    Descartes |        5 |      9 |         Ágata
+ 12 |    Descartes |        5 |     12 |       Quartzo
+  3 |       Platão |        2 |      3 |     Esmeralda
+  
+5) UPDATE PetOwner SET name = 'Kant' WHERE id = 3;
+
+ id | name         | owner_id | pet_id | pet_name
+----+--------------+----------+--------+---------------
+  5 |         Kant |        7 |      5 |      Espinela
+ 10 |    Descartes |        5 |     10 |       Granada
+ 11 |    Descartes |        5 |     11 | Diamante Rosa
+  1 |  Aristóteles |        1 |      1 |       Jadeite
+  8 |     Sócrates |        8 |      8 |       Cristal
+  2 |       Platão |        2 |      2 |      Diamante
+  4 |    Nietzsche |        3 |      4 |         Opala
+  7 |        Hegel |        6 |      7 |          Rubi
+  6 | Wittgenstein |        4 |      6 |        Safira
+  9 |    Descartes |        5 |      9 |         Ágata
+ 12 |    Descartes |        5 |     12 |       Quartzo
+  3 |         Kant |        2 |      3 |     Esmeralda
+
+---------------------------------------------------------------------------------------------------- DELETES ------------------------------------------------------------------------------------------
+
+1) DELETE FROM Owner WHERE id = 11;
+
+select * from Owner;
+
+ id | username     | email              | name            | phone
+----+--------------+--------------------+-----------------+-----------
+  5 |    Descartes |    descartes@ua.pt | Descartes Jorge | 123456789
+ 10 |    Sebastião |        sebas@ua.pt |   Dom Sebastiao | 961789789
+  1 |  Aristóteles |  aristoteles@ua.pt |     Aristóteles | 961444444
+  8 |     Sócrates |     socrates@ua.pt |        Sócrates | 961777777
+  2 |       Platão |       platao@ua.pt |          Platão | 961555555
+  4 | Wittgenstein | Wittgenstein@ua.pt |    Wittgenstein | 961222222
+  7 |         Kant |         Kant@ua.pt |            Kant | 961666666
+  6 |        Hegel |        hegel@ua.pt |           Hegel | 961000000
+  9 |        Mário |        mario@ua.pt |     Mário Sousa | 961741852
+ 12 |      Osvaldo |        sousa@ua.pt |   Osvaldo Sousa | 961123123
+  3 |    Nietzsche |          nie@ua.pt |       Nietzsche | 961333333
+  
+2) DELETE FROM Pet WHERE birth_date = '2022-12-05 17:44:46.985000+0000' and id = 11;
+
+select * from Pet;
+
+ id | birth_date                      | name      | specie_id
+----+---------------------------------+-----------+-----------
+  5 | 2022-12-05 15:11:37.433000+0000 |  Espinela |         5
+ 10 | 2022-12-05 15:11:38.478000+0000 |   Granada |        10
+  1 | 2022-12-05 15:11:37.412000+0000 |   Jadeite |         1
+  8 | 2022-12-05 15:11:37.446000+0000 |   Cristal |         8
+  2 | 2022-12-05 15:11:37.419000+0000 | Diamante  |         2
+  4 | 2022-12-05 15:11:37.428000+0000 |     Opala |         4
+  7 | 2022-12-05 15:11:37.442000+0000 |      Rubi |         7
+  6 | 2022-12-05 15:11:37.438000+0000 |    Safira |         6
+  9 | 2022-12-05 15:11:37.451000+0000 |     Ágata |         9
+ 12 | 2022-12-05 17:44:48.310000+0000 |   Quartzo |        12
+  3 | 2022-12-05 15:11:37.424000+0000 | Esmeralda |         3
+  
+3) DELETE FROM PetOwner WHERE id = 11;
+
+select * from PetOwner;
+
+ id | name         | owner_id | pet_id | pet_name
+----+--------------+----------+--------+-----------
+  5 |         Kant |        7 |      5 |  Espinela
+ 10 |    Descartes |        5 |     10 |   Granada
+  1 |  Aristóteles |        1 |      1 |   Jadeite
+  8 |     Sócrates |        8 |      8 |   Cristal
+  2 |       Platão |        2 |      2 |  Diamante
+  4 |    Nietzsche |        3 |      4 |     Opala
+  7 |        Hegel |        6 |      7 |      Rubi
+  6 | Wittgenstein |        4 |      6 |    Safira
+  9 |    Descartes |        5 |      9 |     Ágata
+ 12 |    Descartes |        5 |     12 |   Quartzo
+  3 |         Kant |        2 |      3 | Esmeralda
+
+4) DELETE FROM Prices WHERE price = '8.00' and id = 13;
+
+select * from Prices;
+
+ id | price | product                   | shop_id | shop_name       | specie_id
+----+-------+---------------------------+---------+-----------------+-----------
+  5 |  5.20 |  {'5.20', 'Ração de Cão'} |       4 |         Paws Up |         8
+ 10 |  8.20 |       {'8.20', 'Aquario'} |       1 |         Paws Up |         3
+ 11 |  5.20 |       {'5.20', 'Aquario'} |       2 | The Fluffy Shop |        10
+  1 |  5.20 | {'5.20', 'Areia de gato'} |       1 |    The Star Pet |         1
+  8 |  3.20 |       {'3.20', 'Gaiolas'} |       3 |       Pet Haven |         6
+  2 |  3.20 | {'3.20', 'Areia de gato'} |       4 |         Paws Up |         1
+  4 |  5.00 |  {'5.00', 'Ração de Cão'} |       1 |    The Star Pet |         8
+  7 |  7.20 |       {'7.20', 'Gaiolas'} |       3 |       Pet Haven |         7
+  6 |  4.00 |  {'4.00', 'Ração de Cão'} |       2 | The Fluffy Shop |         9
+  9 |  5.20 |       {'5.20', 'Aquario'} |       1 |    The Star Pet |         1
+ 12 | 10.00 |      {'10.00', 'Aquario'} |       2 | The Fluffy Shop |        12
+  3 |  6.20 |  {'6.20', 'Ração de Cão'} |       3 |       Pet Haven |         8
+  
+5) DELETE FROM Prices WHERE shop_name = 'The Fluffy Shop';
+
+select * from Prices;
+
+ id | price | product                   | shop_id | shop_name       | specie_id
+----+-------+---------------------------+---------+-----------------+-----------
+  5 |  5.20 |  {'5.20', 'Ração de Cão'} |       4 |         Paws Up |         8
+ 10 |  8.20 |       {'8.20', 'Aquario'} |       1 |         Paws Up |         3
+ 11 |  5.20 |       {'5.20', 'Aquario'} |       2 | The Fluffy Shop |        10
+  1 |  5.20 | {'5.20', 'Areia de gato'} |       1 |    The Star Pet |         1
+  8 |  3.20 |       {'3.20', 'Gaiolas'} |       3 |       Pet Haven |         6
+  2 |  3.20 | {'3.20', 'Areia de gato'} |       4 |         Paws Up |         1
+  4 |  5.00 |  {'5.00', 'Ração de Cão'} |       1 |    The Star Pet |         8
+  7 |  7.20 |       {'7.20', 'Gaiolas'} |       3 |       Pet Haven |         7
+  6 |  4.00 |  {'4.00', 'Ração de Cão'} |       2 | The Fluffy Shop |         9
+  9 |  5.20 |       {'5.20', 'Aquario'} |       1 |    The Star Pet |         1
+  3 |  6.20 |  {'6.20', 'Ração de Cão'} |       3 |       Pet Haven |         8
+

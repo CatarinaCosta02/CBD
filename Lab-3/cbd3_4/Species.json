@@ -1,0 +1,14 @@
+     {"id": 5, "pet_id": 5, "pet_name": "Espinela", "specie_pet": ["Cat", "Russian Blue"]}
+         {"id": 10, "pet_id": 10, "pet_name": "Granada", "specie_pet": ["Fish", "Guppie"]}
+          {"id": 11, "pet_id": 11, "pet_name": "Citrino", "specie_pet": ["Cat", "Siames"]}
+     {"id": 1, "pet_id": 1, "pet_name": "Jadeite", "specie_pet": ["American Curl", "Cat"]}
+            {"id": 8, "pet_id": 8, "pet_name": "Cristal", "specie_pet": ["Beagle", "Dog"]}
+ {"id": 2, "pet_id": 2, "pet_name": "Diamante", "specie_pet": ["Alaskan Malamute", "Dog"]}
+             {"id": 4, "pet_id": 4, "pet_name": "Opala", "specie_pet": ["Cat", "Persian"]}
+             {"id": 7, "pet_id": 7, "pet_name": "Rubi", "specie_pet": ["Bird", "Canarie"]}
+          {"id": 6, "pet_id": 6, "pet_name": "Safira", "specie_pet": ["Bird", "Parakeet"]}
+           {"id": 9, "pet_id": 9, "pet_name": "Ágata", "specie_pet": ["Bolognese", "Dog"]}
+         {"id": 12, "pet_id": 12, "pet_name": "Quartzo", "specie_pet": ["Fish", "Guppie"]}
+     {"id": 3, "pet_id": 3, "pet_name": "Esmeralda", "specie_pet": ["Fish", "Neon Tetra"]}
+
+(12 rows)

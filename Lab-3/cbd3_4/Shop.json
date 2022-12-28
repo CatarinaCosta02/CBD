@@ -1,0 +1,7 @@
+             {"id": 5, "name": "Pet Shop", "informacoes": ["thestarpey@ua.pt", "961111111"], "localizacao": {"PDL": "R. da Juventude, 9500-211 Ponta Delgada"}, "prices_id": 5}
+         {"id": 1, "name": "The Star Pet", "informacoes": ["thestarpey@ua.pt", "961111111"], "localizacao": {"PDL": "R. da Juventude, 9500-211 Ponta Delgada"}, "prices_id": 1}
+        {"id": 2, "name": "The Fluffy Shop", "informacoes": ["theflufyyshop@ua.pt", "961222222"], "localizacao": {"LX": "Av. Dom João II 40, 1990-094 Lisboa"}, "prices_id": 2}
+             {"id": 4, "name": "Paws Up", "informacoes": ["pawsup@ua.pt", "961444444"], "localizacao": {"MDR": " P.º de la Florida, 2, 28008 Madrid, Espanha"}, "prices_id": 4}
+ {"id": 3, "name": "Pet Haven", "informacoes": ["pethaven@ua.pt", "961333333"], "localizacao": {"USA": "185 Greenwich St, New York, NY 10007, Estados Unidos"}, "prices_id": 3}
+
+(5 rows)
