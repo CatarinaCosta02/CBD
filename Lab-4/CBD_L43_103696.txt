@@ -1,0 +1,292 @@
+// a) Tendo por base o conteúdo do ficheiro git_selection.csv, modele as entidades e relações necessárias para carregar o seu conteúdo no net4j.
+
+// vai haver duas entidades, User e Project
+// propiedades do User: svn_id, real_name, organization
+// propiedades do Project: project_name
+
+// relação WORKS_ON
+// propriedades da relção WORK_ON: role_on_project, num
+// defino o num na relação, uma vez que para o mesmo user e para o mesmo projeto podem haver num's diferentes
+// (u:User)-[r:WORKS_ON]->(p:Project)
+
+// b) Crie a base de dados github. Copie o ficheiro para a pasta import desta base de dados.
+
+load csv with headers from 'file:///git_selection.csv' as row
+merge (u:User {svn_id: row.svn_id, real_name: row.real_name, organization: row.organization})
+MERGE (p:Project {project_name: row.project_name})
+MERGE (u)-[r:WORKS_ON {num: toInteger(row.num),role: row.role_on_project}]->(p);
+
+// c) Construa expressões Cypher para fornecer a seguinte informação
+
+#1
+
+match (u:User)
+return u as User
+
+// exemple of the query
+╒══════════════════════════════════════════════════════════════════════╕
+│"User"                                                                │
+╞══════════════════════════════════════════════════════════════════════╡
+│{"svn_id":"aa0380","organization":"IBM","real_name":"Aaron Mulder"}   │
+├──────────────────────────────────────────────────────────────────────┤
+│{"svn_id":"ammulder","organization":"Chariot Solutions","real_name":"A│
+│aron Mulder"}                                                         │
+├──────────────────────────────────────────────────────────────────────┤
+│{"svn_id":"ammulder","organization":"Chariot Solutions ","real_name":"│
+│Aaron Mulder"}                                                        │
+├──────────────────────────────────────────────────────────────────────┤
+│{"svn_id":"atm","organization":"Cloudera","real_name":"Aaron T. Myers"│
+│}                                                                     │
+├──────────────────────────────────────────────────────────────────────┤
+│{"svn_id":"atm","organization":"Cloudera ","real_name":"Aaron T. Myers│
+│"}                                                                    │
+├──────────────────────────────────────────────────────────────────────┤
+│{"svn_id":"ab0625","organization":"Oracle Corporation","real_name":"Ab│
+│e White"}                                                             │
+├──────────────────────────────────────────────────────────────────────┤
+│{"svn_id":"ab0633","organization":"Oracle Corporation","real_name":"Ab│
+│e White"}                                                             │
+├──────────────────────────────────────────────────────────────────────┤
+│{"svn_id":"ab1632","organization":"Oracle Corporation ","real_name":"A│
+│be White"}                                                            │
+├──────────────────────────────────────────────────────────────────────┤
+│{"svn_id":"ab1651","organization":"Oracle Corporation ","real_name":"A│
+│be White"}                                                            │
+├──────────────────────────────────────────────────────────────────────┤
+│{"svn_id":"ab2578","organization":"Oracle","real_name":"Abe White"}   │
+├──────────────────────────────────────────────────────────────────────┤
+
+#2
+
+match (u:User)
+return distinct(u.real_name) as Name
+
+// exemple of the query
+
+╒═══════════════════════════════════╕
+│"Name"                             │
+╞═══════════════════════════════════╡
+│"Aaron Mulder"                     │
+├───────────────────────────────────┤
+│"Aaron T. Myers"                   │
+├───────────────────────────────────┤
+│"Abe White"                        │
+├───────────────────────────────────┤
+│"Abraham Elmahrek"                 │
+├───────────────────────────────────┤
+│"Abraham Fine"                     │
+├───────────────────────────────────┤
+│"abrown"                           │
+├───────────────────────────────────┤
+│"Achim Nierbeck"                   │
+├───────────────────────────────────┤
+│"Adam Wojtuniak"                   │
+├───────────────────────────────────┤
+│"Adrian Cole"                      │
+├───────────────────────────────────┤
+│"Adrian Sutton"                    │
+├───────────────────────────────────┤
+│"Afkham Azeez"                     │
+├───────────────────────────────────┤
+│"Aihua Xu"                         │
+├───────────────────────────────────┤
+│"Ajay Yadava"                      │
+├───────────────────────────────────┤
+│"Ajit Kumar"                       │
+├───────────────────────────────────┤
+│"Ajith Ranabahu"                   │
+├───────────────────────────────────┤
+│"Akitoshi Yoshida"                 │
+├───────────────────────────────────┤
+│"Alan Cabrera"                     │
+├───────────────────────────────────┤
+
+#3 
+
+match (u:User)-[r:WORKS_ON]->(p:Project)
+return distinct(p) as Project
+
+// exemple of the query
+
+╒═══════════════════════════════════════════════╕
+│"Project"                                      │
+╞═══════════════════════════════════════════════╡
+│{"project_name":"Apache Geronimo"}             │
+├───────────────────────────────────────────────┤
+│{"project_name":"Geronimo"}                    │
+├───────────────────────────────────────────────┤
+│{"project_name":"ActiveMQ"}                    │
+├───────────────────────────────────────────────┤
+│{"project_name":"Apache ActiveMQ"}             │
+├───────────────────────────────────────────────┤
+│{"project_name":"Apache Camel"}                │
+├───────────────────────────────────────────────┤
+│{"project_name":"Camel"}                       │
+├───────────────────────────────────────────────┤
+│{"project_name":"Apache Hadoop"}               │
+├───────────────────────────────────────────────┤
+
+
+#4 
+
+match (u:User)-[r:WORKS_ON]->(p:Project)
+return u.real_name as User_name, count(p) as Total_projects
+
+// exemple of the query
+
+╒═══════════════════════════════════╤════════════════╕
+│"User_name"                        │"Total_projects"│
+╞═══════════════════════════════════╪════════════════╡
+│"Hai Hong Xu"                      │3               │
+├───────────────────────────────────┼────────────────┤
+│"Jarek Gawor"                      │11              │
+├───────────────────────────────────┼────────────────┤
+│"Lin Quan Jiang 'Shawn'"           │3               │
+├───────────────────────────────────┼────────────────┤
+│"David Blevins"                    │7               │
+├───────────────────────────────────┼────────────────┤
+│"Vamsavardhana Reddy Chillakuru"   │4               │
+├───────────────────────────────────┼────────────────┤
+│"Rick McGuire"                     │3               │
+├───────────────────────────────────┼────────────────┤
+
+#5 
+
+match (u:User)-[r:WORKS_ON]->(p:Project)
+return u.real_name as User_name, count(p) as Total_projects
+order by Total_projects desc
+
+// exemple of the query
+
+╒═══════════════════════════════════╤════════════════╕
+│"User_name"                        │"Total_projects"│
+╞═══════════════════════════════════╪════════════════╡
+│"James Strachan"                   │29              │
+├───────────────────────────────────┼────────────────┤
+│"David Jencks"                     │26              │
+├───────────────────────────────────┼────────────────┤
+│"Guillaume Nodet"                  │24              │
+├───────────────────────────────────┼────────────────┤
+│"Geir Magnusson Jr."               │20              │
+├───────────────────────────────────┼────────────────┤
+│"Daniel Rall"                      │20              │
+├───────────────────────────────────┼────────────────┤
+│"Hiram Chirino"                    │19              │
+├───────────────────────────────────┼────────────────┤
+│"Jean-Baptiste Onofre"             │19              │
+├───────────────────────────────────┼────────────────┤
+│"Owen O'Malley"                    │18              │
+├───────────────────────────────────┼────────────────┤
+│"Ioannis Canellos"                 │16              │
+├───────────────────────────────────┼────────────────┤
+
+#6 
+
+match (u:User)-[r:WORKS_ON]->(p:Project)
+return count(u) as Total_members, p.project_name as Project
+// exemple of the query
+
+╒═══════════════╤══════════════════════════════╕
+│"Total_members"│"Project"                     │
+╞═══════════════╪══════════════════════════════╡
+│117            │"Apache Geronimo"             │
+├───────────────┼──────────────────────────────┤
+│42             │"Geronimo"                    │
+├───────────────┼──────────────────────────────┤
+│82             │"ActiveMQ"                    │
+├───────────────┼──────────────────────────────┤
+│27             │"Apache ActiveMQ"             │
+├───────────────┼──────────────────────────────┤
+│87             │"Apache Camel"                │
+├───────────────┼──────────────────────────────┤
+│52             │"Camel"                       │
+├───────────────┼──────────────────────────────┤
+│186            │"Apache Hadoop"               │
+├───────────────┼──────────────────────────────┤
+│75             │"Hadoop"                      │
+├───────────────┼──────────────────────────────┤
+│54             │"Apache OpenJPA"              │
+├───────────────┼──────────────────────────────┤
+
+#7 Liste projetos e total de membros com a role "Committer" em cada projeto.
+
+// exemple of the query
+
+match (u:User)-[r:WORKS_ON{role : "Committer"}]->(p:Project)
+return count(u) as Total_members, p.project_name as Project
+
+╒═══════════════╤══════════════════════════════╕
+│"Total_members"│"Project"                     │
+╞═══════════════╪══════════════════════════════╡
+│87             │"Apache Geronimo"             │
+├───────────────┼──────────────────────────────┤
+│27             │"ActiveMQ"                    │
+├───────────────┼──────────────────────────────┤
+│27             │"Apache ActiveMQ"             │
+├───────────────┼──────────────────────────────┤
+│60             │"Apache Camel"                │
+├───────────────┼──────────────────────────────┤
+│116            │"Apache Hadoop"               │
+├───────────────┼──────────────────────────────┤
+│38             │"Apache OpenJPA"              │
+├───────────────┼──────────────────────────────┤
+│14             │"Apache Karaf"                │
+├───────────────┼──────────────────────────────┤
+│13             │"Apache Whirr"                │
+├───────────────┼──────────────────────────────┤
+
+
+#8 
+
+match (u1:User)-[r1:WORKS_ON]->(p:Project)<-[r2:WORKS_ON]-(u2:User)
+where u1.svn_id = "atm" and id(u1) < id(u2)
+return u1.real_name as User_name1, u2.real_name as User_name2, p.project_name as Project
+
+// exemple of the query
+
+
+╒════════════════╤═════════════════════════╤═══════════════╕
+│"User_name1"    │"User_name2"             │"Project"      │
+╞════════════════╪═════════════════════════╪═══════════════╡
+│"Aaron T. Myers"│"Andrew Wang"            │"Hadoop"       │
+├────────────────┼─────────────────────────┼───────────────┤
+│"Aaron T. Myers"│"Owen O'Malley"          │"Hadoop"       │
+├────────────────┼─────────────────────────┼───────────────┤
+│"Aaron T. Myers"│"Konstantin Shvachko"    │"Hadoop"       │
+├────────────────┼─────────────────────────┼───────────────┤
+│"Aaron T. Myers"│"Jian He"                │"Hadoop"       │
+├────────────────┼─────────────────────────┼───────────────┤
+│"Aaron T. Myers"│"Robert Kanter"          │"Hadoop"       │
+├────────────────┼─────────────────────────┼───────────────┤
+
+#9 
+
+match (u1:User)-[r1:WORKS_ON {role : "PMC"}]->(p:Project)<-[r2:WORKS_ON {role : "Committer"}]-(u2:User)
+where u1.svn_id = "atm" and id(u1) < id(u2)
+return u2.real_name as User_name2
+
+// exemple of the query
+
+
+╒═════════════════════════╕
+│"User_name2"             │
+╞═════════════════════════╡
+│"Harsh J"                │
+├─────────────────────────┤
+│"Dhruba Borthakur"       │
+├─────────────────────────┤
+│"Jonathan Eagles"        │
+├─────────────────────────┤
+│"Konstantin Boudnik"     │
+├─────────────────────────┤
+│"Dhruba Borthakur"       │
+├─────────────────────────┤
+│"Sanjay Radia"           │
+├─────────────────────────┤
+│"Koji Noguchi"           │
+├─────────────────────────┤
+│"Boris Shkolnik"         │
+├─────────────────────────┤
+
+
+

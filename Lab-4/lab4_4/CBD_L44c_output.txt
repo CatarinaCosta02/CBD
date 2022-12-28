@@ -1,0 +1,112 @@
+
+fonte: https://www.kaggle.com/datasets/jacobbaruch/nba-player-of-the-week?select=NBA_player_of_the_week.csv
+
+
+1) List all players
+match (p:Player) return p
+
+---p---
+ {'draft_year': '2015', 'name': 'Norman Powell', 'weight': '215', 'position': 'SG', 'value': '0.5', 'age': '26', 'height': "6'4"}             
+ {'draft_year': '2003', 'name': 'LeBron James', 'weight': '250', 'position': 'F', 'value': '0.5', 'age': '35', 'height': "6'8"}             
+ {'draft_year': '2013', 'name': 'Giannis Antetokounmpo', 'weight': '242', 'position': 'F', 'value': '0.5', 'age': '25', 'height': "6'11"}             
+ {'draft_year': '2015', 'name': 'Kristaps Porzingis', 'weight': '240', 'position': 'FC', 'value': '0.5', 'age': '24', 'height': "7'3"}             
+ {'draft_year': '2017', 'name': 'Jayson Tatum', 'weight': '208', 'position': 'SF', 'value': '0.5', 'age': '21', 'height': "6'8"}             
+ {'draft_year': '2014', 'name': 'Nikola Jokic', 'weight': '250', 'position': 'C', 'value': '0.5', 'age': '25', 'height': "7'0"}             
+ {'draft_year': '2016', 'name': 'Jaylen Brown', 'weight': '220', 'position': 'SF', 'value': '0.5', 'age': '23', 'height': "6'7"}             
+ {'draft_year': '2012', 'name': 'Damian Lillard', 'weight': '195', 'position': 'G', 'value': '0.5', 'age': '29', 'height': "6'3"}             
+ {'draft_year': '2016', 'name': 'Pascal Siakam', 'weight': '230', 'position': 'F', 'value': '0.5', 'age': '25', 'height': "6'9"}             
+ {'draft_year': '2016', 'name': 'Ben Simmons', 'weight': '230', 'position': 'PF', 'value': '0.5', 'age': '23', 'height': "6'10"}             
+
+
+
+2) List all the teams with 'Toronto' in the name
+match (t:Team) where t.name contains 'Toronto' return t
+
+---t---
+ {'name': 'Toronto Raptors', 'conf': 'East'}             
+
+
+3) List the top3 oldest players
+match (p:Player) return distinct(p) as Player_age order by Player_age desc limit 3
+
+---Player_age---
+ {'draft_year': '2002', 'name': 'Caron Butler', 'weight': '228', 'position': 'SF', 'value': '0.5', 'age': '26', 'height': "6'7"}             
+ {'draft_year': '1996', 'name': 'Steve Nash', 'weight': '178', 'position': 'G', 'value': '0.5', 'age': '33', 'height': "6'3"}             
+ {'draft_year': '2001', 'name': 'Mehmet Okur', 'weight': '249', 'position': 'FC', 'value': '0.5', 'age': '27', 'height': "6'11"}             
+
+
+4) List all the players in the 2020 seasons5) List all the teams LeBron James played for
+match (p:Player)-[r:WILL_PLAY]->(s:Season) where s.season = '2020' return p
+
+---
+
+6) List all the players that were awarded in the 2019 season
+match (p:Player)-[r:PLAYS]->(t:Team) where p.name = 'LeBron James' return t
+
+---t---
+ {'name': 'Los Angeles Lakers', 'conf': 'West'}             
+ {'name': 'Cleveland Cavaliers', 'conf': 'East'}             
+ {'name': 'Cleveland Cavaliers', 'conf': 'East'}             
+ {'name': 'Cleveland Cavaliers', 'conf': 'East'}             
+ {'name': 'Cleveland Cavaliers', 'conf': 'East'}             
+ {'name': 'Miami Heat', 'conf': 'East'}             
+ {'name': 'Miami Heat', 'conf': 'East'}             
+ {'name': 'Miami Heat', 'conf': 'East'}             
+ {'name': 'Miami Heat', 'conf': 'East'}             
+ {'name': 'Cleveland Cavaliers', 'conf': 'East'}             
+
+
+
+7) List all the players that are in the 'West' conference
+match (p:Player)-[r:AWARDED]->(s:Season) where s.season = '2019' return p
+
+---
+
+8) List the age of the players that pay in the 'SG' position
+match (p:Player)-[r:PLAYS]->(t:Team) where t.conf = 'West' return p
+
+---p---
+ {'draft_year': '2001', 'name': 'Pau Gasol', 'weight': '250', 'position': 'FC', 'value': '0.5', 'age': '30', 'height': "7'0"}             
+ {'draft_year': '1996', 'name': 'Kobe Bryant', 'weight': '212', 'position': 'SG', 'value': '0.5', 'age': '32', 'height': "6'6"}             
+ {'draft_year': '2001', 'name': 'Pau Gasol', 'weight': '250', 'position': 'FC', 'value': '0.5', 'age': '28', 'height': "7'0"}             
+ {'draft_year': '2005', 'name': 'Andrew Bynum', 'weight': '285', 'position': 'C', 'value': '0.5', 'age': '24', 'height': "7'0"}             
+ {'draft_year': '1996', 'name': 'Kobe Bryant', 'weight': '212', 'position': 'SG', 'value': '0.5', 'age': '34', 'height': "6'6"}             
+ {'draft_year': '1996', 'name': 'Kobe Bryant', 'weight': '212', 'position': 'SG', 'value': '0.5', 'age': '28', 'height': "6'6"}             
+ {'draft_year': '1996', 'name': 'Kobe Bryant', 'weight': '212', 'position': 'SG', 'value': '0.5', 'age': '29', 'height': "6'6"}             
+ {'draft_year': '1996', 'name': 'Kobe Bryant', 'weight': '212', 'position': 'SG', 'value': '0.5', 'age': '31', 'height': "6'6"}             
+ {'draft_year': '2005', 'name': 'Andrew Bynum', 'weight': '285', 'position': 'C', 'value': '0.5', 'age': '21', 'height': "7'0"}             
+ {'draft_year': '1996', 'name': 'Kobe Bryant', 'weight': '212', 'position': 'SG', 'value': '0.5', 'age': '30', 'height': "6'6"}             
+
+
+
+9) List all the teams that have 'Toronto' in the name
+match (p:Player) where p.position = 'SG' return p.age
+
+---p.age---
+ 26             
+ 30             
+ 29             
+ 25             
+ 22             
+ 23             
+ 28             
+ 24             
+ 27             
+ 25             
+
+
+
+10) Liste the player that has the lowest weight
+match (p:Player)-[r:PLAYS]->(t:Team) where t.name contains 'Toronto' return p
+
+---p---
+ {'draft_year': '2003', 'name': 'Chris Bosh', 'weight': '235', 'position': 'PF', 'value': '0.5', 'age': '23', 'height': "6'11"}             
+ {'draft_year': '2006', 'name': 'Kyle Lowry', 'weight': '196', 'position': 'PG', 'value': '0.5', 'age': '29', 'height': "6'1"}             
+ {'draft_year': '2006', 'name': 'Kyle Lowry', 'weight': '196', 'position': 'PG', 'value': '0.5', 'age': '28', 'height': "6'1"}             
+ {'draft_year': '2006', 'name': 'Kyle Lowry', 'weight': '196', 'position': 'PG', 'value': '0.5', 'age': '27', 'height': "6'1"}             
+ {'draft_year': '2009', 'name': 'DeMar DeRozan', 'weight': '220', 'position': 'GF', 'value': '0.5', 'age': '28', 'height': "6'7"}             
+ {'draft_year': '2003', 'name': 'Chris Bosh', 'weight': '235', 'position': 'PF', 'value': '0.5', 'age': '25', 'height': "6'11"}             
+ {'draft_year': '2016', 'name': 'Pascal Siakam', 'weight': '230', 'position': 'F', 'value': '0.5', 'age': '24', 'height': "6'9"}             
+ {'draft_year': '2009', 'name': 'DeMar DeRozan', 'weight': '220', 'position': 'GF', 'value': '0.5', 'age': '26', 'height': "6'7"}             
+ {'draft_year': '2003', 'name': 'Chris Bosh', 'weight': '235', 'position': 'PF', 'value': '0.5', 'age': '22', 'height': "6'11"}             
+ {'draft_year': '2005', 'name': 'Lou Williams', 'weight': '175', 'position': 'G', 'value': '0.5', 'age': '28', 'height': "6'1"}     
