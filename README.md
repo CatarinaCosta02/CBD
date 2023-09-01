@@ -1,2 +1,2 @@
 # CBD
-Lab classes for the Data Base Complements class 2022/2023
+Pratical lab classes for the Data Base Complements class 2022/2023
